@@ -7,7 +7,7 @@ const fetchAllProducts = asyncHandler(async (req, res) => {
 		res.status(200).json(products);
 	} catch (err) {
 		res.status(500);
-		throw new err(err.message);
+		throw new Error(err.message);
 	}
 });
 
@@ -18,7 +18,7 @@ const fetchProductById = asyncHandler(async (req, res) => {
 		res.status(200).json(product);
 	} catch (err) {
 		res.status(500);
-		throw new err(err.message);
+		throw new Error(err.message);
 	}
 });
 
@@ -28,7 +28,7 @@ const createProduct = asyncHandler(async (req, res) => {
 		res.status(200).json(product);
 	} catch (err) {
 		res.status(500);
-		throw new err(err.message);
+		throw new Error(err.message);
 	}
 });
 
@@ -37,14 +37,13 @@ const updateProductById = asyncHandler(async (req, res) => {
 		const { id } = req.params;
 		const product = await Product.findByIdAndUpdate(id, req.body);
 		if (!product) {
-			res.status(404);
-			throw new err(`No product with ID ${id}`);
+			return res.status(404).json(`No product with ID ${id}`);
 		}
 		const updatedProduct = await Product.findById(id);
 		res.status(200).json(updatedProduct);
 	} catch (err) {
 		res.status(500);
-		throw new err(err.message);
+		throw new Error(err.message);
 	}
 });
 
@@ -54,12 +53,12 @@ const deleteProductById = asyncHandler(async (req, res) => {
 		const product = await Product.findByIdAndDelete(id);
 		if (!product) {
 			res.status(404);
-			throw new err(`No product with ID ${id}`);
+			throw new Error(`No product with ID ${id}`);
 		}
 		res.status(200).json(product);
 	} catch (err) {
 		res.status(500);
-		throw new err(err.message);
+		throw new Error(err.message);
 	}
 });
 

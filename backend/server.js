@@ -12,8 +12,8 @@ app.use(express.json());
 app.use("/api", productRoutes)
 
 
-app.get("/", (req, res) => {
-	throw new Error('Fake error')
+app.get("/", (err, req, res) => {
+	throw new Error(err.status)
 });
 
 app.use(errorHandler);
