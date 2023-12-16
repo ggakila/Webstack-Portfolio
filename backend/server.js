@@ -3,12 +3,14 @@ const express = require("express");
 const mongoose = require("mongoose");
 const productRoutes = require("./routes/productRoutes");
 const errorHandler = require("./middleware/errorHandler");
+const cors = require('cors');
 
 const app = express();
 const port = process.env.PORT || 5000;
+const DB_URL = process.env.MONGO_URL;
 
 app.use(express.json());
-
+app.use(cors());
 app.use("/api", productRoutes)
 
 
@@ -20,7 +22,7 @@ app.use(errorHandler);
 
 mongoose
 	.connect(
-		process.env.MONGO_URL
+		DB_URL
 	)
 	.then(() => {
 		console.log("Connected to MongoDb");
