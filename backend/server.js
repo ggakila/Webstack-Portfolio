@@ -15,7 +15,7 @@ app.use("/api", productRoutes)
 
 
 app.get("/", (err, req, res) => {
-	throw new Error(err.status)
+	res.send("Server is live!")
 });
 
 app.use(errorHandler);
