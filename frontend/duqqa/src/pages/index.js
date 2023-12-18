@@ -11,7 +11,7 @@ const poppins = Poppins({
 export default function Home() {
   return (
     <main
-      className={`flex min-h-screen flex-col items-center px-5 md:px-20 gap-5 text bg-black ${poppins.className}`}
+      className={`flex min-h-screen flex-col items-center px-5 md:px-20 gap-5 text  ${poppins.className}`}
     >
       <Header/>
       <Hero/>

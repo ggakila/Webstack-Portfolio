@@ -11,19 +11,19 @@ export default function Hero() {
 	return (
 		<div className="w-full h-[75dvh] flex">
 			<div className="flex w-1/6  flex-col justify-end text-left gap-2 text-2xl">
-				<Link href="/exhibition" className="border-black border-b-2 hover:border-white hover:text-white">
+				<Link href="/exhibition" className="border-transparent border-b-2 hover:border-white hover:text-white">
 					Exhibition
 				</Link>
-				<Link href="/showcase" className="border-black border-b-2 hover:border-white hover:text-white">
+				<Link href="/showcase" className="border-transparent border-b-2 hover:border-white hover:text-white">
 					Showcase your work
 				</Link>
-				<Link href="/cart" className="border-black border-b-2 hover:border-white hover:text-white">
+				<Link href="/cart" className="border-transparent border-b-2 hover:border-white hover:text-white">
 					Cart
 				</Link>
-				<Link href="/contact" className="border-black border-b-2 hover:border-white hover:text-white">
+				<Link href="/contact" className="border-transparent border-b-2 hover:border-white hover:text-white">
 					say hello
 				</Link>
-				<Link href="/profi" className="border-black border-b-2 hover:border-white hover:text-white">
+				<Link href="/profi" className="border-transparent border-b-2 hover:border-white hover:text-white">
 					me
 				</Link>
 			</div>

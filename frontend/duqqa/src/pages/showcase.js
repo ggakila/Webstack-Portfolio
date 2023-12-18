@@ -50,13 +50,16 @@ export default function ProductForm() {
 
 	return (
 		<div className="text-white   h-screen flex flex-col items-start justify-start gap-10 p-10 md:p-20">
-      <Link href="/" className="w-[40px] h-[40px] relative">
-        <Image
-        src="/images/back.svg"
-        fill={true}
-        alt="back button home"
-        />
-      </Link>
+			<Link
+				href="/"
+				className="w-[40px] h-[40px] relative"
+			>
+				<Image
+					src="/images/back.svg"
+					fill={true}
+					alt="back button home"
+				/>
+			</Link>
 			<h1 className="text-5xl md:text-7xl font-light">
 				showcase your work<br></br> the world awaits your canvas
 			</h1>
@@ -68,17 +71,17 @@ export default function ProductForm() {
 					<input
 						{...register("productName")}
 						placeholder="title"
-						className="w-full bg-black  focus:border-b border-gray-800 outline-none text-3xl py-3 text-gray-300"
+						className="w-full bg-transparent border-b border-gray-800 outline-none text-3xl py-3 text-gray-300"
 						autoComplete="off"
 					/>
-					<p>{errors.productName?.message}</p>
+					<p className="text-red-500 px-5">{errors.productName?.message}</p>
 				</div>
 
 				<div>
 					<input
 						{...register("description")}
 						placeholder="description"
-						className="w-full bg-black  focus:border-b border-gray-800 outline-none text-3xl py-3 text-gray-300"
+						className="w-full bg-transparent border-b border-gray-800 outline-none text-3xl py-3 text-gray-300"
 						autoComplete="off"
 					/>
 					<p>{errors.description?.message}</p>
@@ -88,7 +91,7 @@ export default function ProductForm() {
 					<input
 						{...register("imageUrl")}
 						placeholder="image url"
-						className="w-full bg-black  focus:border-b border-gray-800 outline-none text-3xl py-3 text-gray-300"
+						className="w-full bg-transparent border-b border-gray-800 outline-none text-3xl py-3 text-gray-300"
 						autoComplete="off"
 					/>
 					<p>{errors.imageUrl?.message}</p>
@@ -98,7 +101,7 @@ export default function ProductForm() {
 					<input
 						{...register("quantity")}
 						placeholder="quantity"
-						className="w-full bg-black  focus:border-b border-gray-800 outline-none text-3xl py-3 text-gray-300"
+						className="w-full bg-transparent border-b border-gray-800 outline-none text-3xl py-3 text-gray-300"
 						autoComplete="off"
 					/>
 					<p>{errors.quantity?.message}</p>
@@ -108,7 +111,7 @@ export default function ProductForm() {
 					<input
 						{...register("price")}
 						placeholder="price"
-						className="w-full bg-black  focus:border-b border-gray-800 outline-none text-3xl py-3 text-gray-300"
+						className="w-full bg-transparent border-b border-gray-800 outline-none text-3xl py-3 text-gray-300"
 						autoComplete="off"
 					/>
 					<p>{errors.price?.message}</p>
