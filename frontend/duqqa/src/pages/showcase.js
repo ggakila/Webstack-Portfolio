@@ -74,7 +74,7 @@ export default function ProductForm() {
 						className="w-full bg-transparent border-b border-gray-800 outline-none text-3xl py-3 text-gray-300"
 						autoComplete="off"
 					/>
-					<p className="text-red-500 px-5">{errors.productName?.message}</p>
+					<p className="text-red-500">{errors.productName?.message}</p>
 				</div>
 
 				<div>
@@ -84,7 +84,7 @@ export default function ProductForm() {
 						className="w-full bg-transparent border-b border-gray-800 outline-none text-3xl py-3 text-gray-300"
 						autoComplete="off"
 					/>
-					<p>{errors.description?.message}</p>
+					<p className="text-red-500">{errors.description?.message}</p>
 				</div>
 
 				<div>
@@ -94,7 +94,7 @@ export default function ProductForm() {
 						className="w-full bg-transparent border-b border-gray-800 outline-none text-3xl py-3 text-gray-300"
 						autoComplete="off"
 					/>
-					<p>{errors.imageUrl?.message}</p>
+					<p className="text-red-500">{errors.imageUrl?.message}</p>
 				</div>
 
 				<div>
@@ -104,7 +104,7 @@ export default function ProductForm() {
 						className="w-full bg-transparent border-b border-gray-800 outline-none text-3xl py-3 text-gray-300"
 						autoComplete="off"
 					/>
-					<p>{errors.quantity?.message}</p>
+					<p className="text-red-500">{errors.quantity?.message}</p>
 				</div>
 
 				<div>
@@ -114,12 +114,12 @@ export default function ProductForm() {
 						className="w-full bg-transparent border-b border-gray-800 outline-none text-3xl py-3 text-gray-300"
 						autoComplete="off"
 					/>
-					<p>{errors.price?.message}</p>
+					<p className="text-red-500">{errors.price?.message}</p>
 				</div>
 
 				<input
 					type="submit"
-					className=" py-3 px-5 w-[200px] rounded-full text-gray-900 text-lg font-semibold cursor-pointer bg-white"
+					className=" py-3 px-5 w-[200px] rounded-full bg-gray-300 text-gray-900 text-lg font-semibold cursor-pointer  hover:bg-white hover:shadow-white shadow-md"
 				/>
 			</form>
 		</div>

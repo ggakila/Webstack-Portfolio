@@ -2,12 +2,21 @@ import CartItem from "@/components/CartItem";
 import Image from "next/image";
 import Link from "next/link";
 
-
 export default function cart() {
-  return (
+	return (
 		<div className="flex flex-col-reverse sm:flex-row">
 			<div className=" flex justify-start w-full sm:w-1/2 xl:w-1/3 flex-col items-center p-10 gap-5 h-screen">
-				<div className="flex flex-col justify-start itens-start w-full  ">
+				<div className="flex flex-col justify-start items-start w-full gap-3  ">
+					<Link
+						href="/"
+						className="w-[40px] h-[40px] relative"
+					>
+						<Image
+							src="/images/back.svg"
+							fill={true}
+							alt="back button home"
+						/>
+					</Link>
 					<h1 className="text-3xl font-bold">Cart.</h1>
 					<h1 className="text-left text-xl ">
 						You are about to acquire the following works
@@ -47,4 +56,3 @@ export default function cart() {
 		</div>
 	);
 }
-
