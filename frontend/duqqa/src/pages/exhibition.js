@@ -5,7 +5,7 @@ import Image from "next/image";
 
 export default function Exhibition() {
 	return (
-		<div className="exhibition  h-full p-10 lg:px-20">
+		<div className="exhibition  h-full p-10 lg:px-20 font-light">
 			<div className="flex flex-col items-start gap-10 py-5">
 				<Link
 					href="/"
