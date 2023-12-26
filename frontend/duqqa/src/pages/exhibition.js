@@ -7,7 +7,7 @@ import { useAuth } from "@/utils/AuthContext";
 
 export default function Exhibition() {
 	const { token } = useAuth(); 
-
+	console.log(token);
 	const { data: products, isLoading } = useQuery({
 		queryFn: () => fetchAllProducts(token),
 		queryKey: ["products"],

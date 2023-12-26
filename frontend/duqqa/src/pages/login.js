@@ -53,7 +53,7 @@ export default function Login() {
 			console.log("Response data:", responseData.token);
 			login(responseData.token);
 			reset();
-			router.push("/");
+			router.push("/exhibition");
 		} catch (error) {
 			console.error(
 				"Login failed:",

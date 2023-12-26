@@ -44,7 +44,7 @@ exports.login = async (req, res) => {
 			{ userId: user._id, username: user.username },
 			"sneaky",
 			{
-				expiresIn: 3600,
+				expiresIn: "1h",
 			}
 		);
 		res
