@@ -22,11 +22,12 @@ export default function cart() {
 						You are about to acquire the following works
 					</h1>
 				</div>
-
+				<div className="w-full">
 				<CartItem />
 				<CartItem />
 				<CartItem />
 				<CartItem />
+				</div>
 				<div className="flex w-full justify-between p-3">
 					<h3>Total Price</h3>
 					<p>
@@ -45,7 +46,7 @@ export default function cart() {
 					</button>
 				</div>
 			</div>
-			<div className="relative sm:w-1/2 xl:w-2/3 h-[200px] sm:h-screen">
+			<div className="sm:w-1/2 xl:w-2/3 h-[200px] sm:h-screen relative md:fixed right-0">
 				<Image
 					src="https://4.bp.blogspot.com/_0u4v0vUqHLE/SsUR7vP6xII/AAAAAAAABgg/rAWy_QhGQEI/s1600/Red+Cart.jpg"
 					fill={true}

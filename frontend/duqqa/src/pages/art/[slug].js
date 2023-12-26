@@ -1,33 +1,64 @@
-import React from 'react'
-import Image from 'next/image'
+import React from "react";
+import Image from "next/image";
+import { useRouter } from "next/router";
+import { useQuery } from "@tanstack/react-query";
+import { fetchProductById } from "../../utils/helperFunctions";
 
-export default function page() {
-  return (
-		<div className="w-full h-screen flex items-center px-20">
+export default function ProductPage() {
+	const router = useRouter();
+	const productId = router.query.slug;
+	console.log(productId);
+	const {
+		data: product,
+		isLoading,
+		isError,
+	} = useQuery({
+		queryFn: () => fetchProductById(productId),
+		queryKey: ["product", productId],
+	});
+
+	console.log(product);
+
+	if (isLoading) {
+		return <div>Loading...</div>;
+	}
+
+	if (isError || !product) {
+		return <div>Error loading product</div>;
+	}
+
+	return (
+		<div className="w-full h-screen flex items-center p-20">
 			<div className="w-1/2 h-full relative">
 				<Image
-					src="https://images.pexels.com/photos/1616403/pexels-photo-1616403.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+					src={product.imageUrl}
 					fill={true}
-					alt="art display"
+					alt={product.productName}
 					style={{ objectFit: "contain" }}
 				/>
 			</div>
-			<div className="w-1/2 p-10">
-				<div className="flex ">
-					<p className="w-1/3">Artist</p>
-					<p className="w-2/3">haggai gisore</p>
+			<div className="w-1/2 p-10 flex flex-col gap-10  h-full justify-center text-xl text-gray-400 font-light">
+				<div className="flex">
+					<p className="w-1/4">Artist</p>
+					<p className="w-3/4">xxx{product.artist}</p>
 				</div>
-				<div className="flex ">
-					<p className="w-1/3">Description</p>
-					<p className="w-2/3">
-						an artist showcasing your work or an art enthusiast exploring the
-						digital gallery, we want to hear your thoughts. Share your insights,
-						suggestions, or any aspects you believe we can enhance.
-					</p>
+				<div className="flex">
+					<p className="w-1/4">Title</p>
+					<p className="w-3/4">{product.productName}</p>
 				</div>
-				<div className="flex ">
-					<p className="w-1/3">Artist</p>
-					<p className="w-2/3">haggai gisore</p>
+				<div className="flex">
+					<p className="w-1/4">Description</p>
+					<p className="w-3/4">{product.description}</p>
+				</div>
+				<div className="flex">
+					<p className="w-1/4">Price</p>
+					<p className="w-3/4">${product.price}</p>
+				</div>
+				<div className="flex">
+					<p className="w-1/4"></p>
+					<button className="w-3/4 border border-gray-500 p-2 rounded-full hover:bg-gray-300 hover:text-gray-900">
+						Add to Cart
+					</button>
 				</div>
 			</div>
 		</div>

@@ -8,7 +8,6 @@ const schema = yup
 	.object({
 		productName: yup.string().required(),
 		description: yup.string().required(),
-		quantity: yup.number().positive().integer().required(),
 		imageUrl: yup.string().url().required(),
 		price: yup.number().positive().required("Please enter a price"),
 	})
@@ -26,16 +25,13 @@ export default function ProductForm() {
 
 	const onSubmit = async (data) => {
 		try {
-			const response = await fetch(
-				"https://webstack-backend.onrender.com/api/products/",
-				{
-					method: "POST",
-					headers: {
-						"Content-Type": "application/json",
-					},
-					body: JSON.stringify(data),
-				}
-			);
+			const response = await fetch("http://localhost:5000/api/products/", {
+				method: "POST",
+				headers: {
+					"Content-Type": "application/json",
+				},
+				body: JSON.stringify(data),
+			});
 
 			if (!response.ok) {
 				throw new Error(`HTTP error! Status: ${response.status}`);
@@ -97,15 +93,6 @@ export default function ProductForm() {
 					<p className="text-red-500">{errors.imageUrl?.message}</p>
 				</div>
 
-				<div>
-					<input
-						{...register("quantity")}
-						placeholder="quantity"
-						className="w-full bg-transparent border-b border-gray-800 outline-none text-3xl py-3 text-gray-300"
-						autoComplete="off"
-					/>
-					<p className="text-red-500">{errors.quantity?.message}</p>
-				</div>
 
 				<div>
 					<input
