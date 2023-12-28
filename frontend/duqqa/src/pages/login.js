@@ -50,8 +50,11 @@ export default function Login() {
 
 			const responseData = await response.json();
 			console.log("Credentials successfully submitted:", data);
-			console.log("Response data:", responseData.token);
-			login(responseData.token);
+			console.log("Response data:", responseData);
+			login(responseData.token, {
+				userId: responseData.userId, 
+				username: responseData.username, 
+			});
 			reset();
 			router.push("/exhibition");
 		} catch (error) {

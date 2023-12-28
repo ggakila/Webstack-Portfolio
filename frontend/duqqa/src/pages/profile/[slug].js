@@ -2,9 +2,13 @@ import React from 'react'
 import Link from "next/link";
 import CardsProfile from "@/components/CardsProfile";
 import Image from "next/image";
+import { useRouter } from "next/router";
+
 
 
 export default function profile() {
+	const router = useRouter();
+	const username = router.query.slug;
   return (
 		<div className="flex gap-10 py-10 px-10 lg:px-20 h-screen">
 			<Link
@@ -18,7 +22,7 @@ export default function profile() {
 				/>
 			</Link>
 			<div className="flex flex-col justify-between">
-				<h1 className="text-8xl font-light ">SiR_Squid</h1>
+				<h1 className="text-8xl font-light ">{username}</h1>
 				<div className="flex flex-col  items-start justify-end text-left gap-3 text-2xl">
 					<Link
 						href="/exhibition"

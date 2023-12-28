@@ -3,6 +3,10 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import Image from "next/image";
 import Link from "next/link";
+import { useAuth } from "@/utils/AuthContext";
+import { useRouter } from "next/router";
+import { useEffect } from "react";
+
 
 const schema = yup
 	.object({
@@ -14,6 +18,15 @@ const schema = yup
 	.required();
 
 export default function ProductForm() {
+	const { token } = useAuth();
+	const router = useRouter();
+
+	useEffect(() => {
+		if (!token) {
+			router.push("/login");
+		}
+	}, [token, router]);
+
 	const {
 		register,
 		handleSubmit,

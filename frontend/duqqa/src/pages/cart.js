@@ -1,8 +1,20 @@
 import CartItem from "@/components/CartItem";
 import Image from "next/image";
 import Link from "next/link";
+import { useAuth } from "@/utils/AuthContext";
+import { useRouter } from "next/router";
+import { useEffect } from "react";
+
 
 export default function cart() {
+	const { token } = useAuth();
+	const router = useRouter();
+
+	useEffect(() => {
+		if (!token) {
+			router.push("/login");
+		}
+	}, [token, router]);
 	return (
 		<div className="flex flex-col-reverse sm:flex-row">
 			<div className=" flex justify-start w-full sm:w-1/2 xl:w-1/3 flex-col items-center p-10 gap-5 h-screen">

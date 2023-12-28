@@ -28,8 +28,8 @@ export default function ProductPage() {
 	}
 
 	return (
-		<div className="w-full h-screen flex items-center p-20">
-			<div className="w-1/2 h-full relative">
+		<div className="w-full h-screen flex flex-col md:flex-row items-center p-10 md:p-20">
+			<div className="w-full md:w-1/2 h-full relative">
 				<Image
 					src={product.imageUrl}
 					fill={true}
@@ -37,7 +37,7 @@ export default function ProductPage() {
 					style={{ objectFit: "contain" }}
 				/>
 			</div>
-			<div className="w-1/2 p-10 flex flex-col gap-10  h-full justify-center text-xl text-gray-400 font-light">
+			<div className="w-full md:w-1/2 md:p-10 flex flex-col gap-10  h-full justify-center text-xl text-gray-400 font-light">
 				<div className="flex">
 					<p className="w-1/4">Artist</p>
 					<p className="w-3/4">xxx{product.artist}</p>

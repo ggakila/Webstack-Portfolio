@@ -12,11 +12,11 @@ const authHandler = require("../middleware/authHandler");
 
 
 
-router.get("/products", authHandler,  fetchAllProducts);
+router.get("/products", fetchAllProducts);
 
-router.get("/products/:id", authHandler, fetchProductById);
+router.get("/products/:id", fetchProductById);
 
-router.post("/products", authHandler, createProduct);
+router.post("/products", createProduct);
 
 router.put("/products/:id", authHandler, updateProductById);
 

@@ -1,3 +1,5 @@
+const jwt = require("jsonwebtoken");
+
 const authHandler = async (req, res, next) => {
 	try {
 		// Extract the token from the Authorization header
