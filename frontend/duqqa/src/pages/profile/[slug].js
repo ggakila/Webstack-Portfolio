@@ -6,7 +6,7 @@ import { useRouter } from "next/router";
 
 
 
-export default function profile() {
+export default function Profile() {
 	const router = useRouter();
 	const username = router.query.slug;
   return (
