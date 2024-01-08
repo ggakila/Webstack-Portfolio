@@ -2,7 +2,7 @@ const User = require("../models/User");
 
 exports.getCart = async (req, res) => {
 	try {
-		const userId = req.user.sub;
+		const {userId} = req.params;
 		const user = await User.findById(userId).populate("cart.product");
 
 		if (!user) {
@@ -21,7 +21,7 @@ exports.getCart = async (req, res) => {
 exports.addToCart = async (req, res) => {
 	try {
 		const { productId, quantity } = req.body;
-		const userId = req.user.sub; // Assuming the user ID is stored in req.user after authentication
+		const { userId } = req.params; // Assuming the user ID is stored in req.user after authentication
 
 		// Find the user by ID
 		const user = await User.findById(userId);
@@ -56,7 +56,7 @@ exports.addToCart = async (req, res) => {
 exports.deleteFromCart = async (req, res) => {
 	try {
 		const { productId } = req.body;
-		const userId = req.user.sub; // Assuming the user ID is stored in req.user after authentication
+		const { userId } = req.params;// Assuming the user ID is stored in req.user after authentication
 
 		// Find the user by ID
 		const user = await User.findById(userId);

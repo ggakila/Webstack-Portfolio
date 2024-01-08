@@ -17,7 +17,7 @@ import { useEffect , useState } from "react";
 // });
 
 export default function Header() {
-	const { username, token, logout } = useAuth();
+	const { username, token, logout, userId } = useAuth();
 	const router = useRouter();
 	return (
 		<div
@@ -25,7 +25,7 @@ export default function Header() {
 		>
 			<h1 className={`font-bold text-7xl `}>duqqa</h1>
 			<div className="flex  gap-2 text-2xl text-right">
-				<div className="flex flex-col md:flex-row  justify-end text-left gap-2 md:gap-5 font-light text-[12px] md:text-xl">
+				<div className="flex flex-col md:flex-row  justify-end text-left gap-2 md:gap-5 font-light text-[2vw]  md:text-[1.2vw]">
 					<Link
 						href="/exhibition"
 						className="border-transparent border-b hover:border-gray-200 hover:text-gray-200 font-extralight"
@@ -39,7 +39,10 @@ export default function Header() {
 						Showcase
 					</Link>
 					<Link
-						href="/cart"
+						href={{
+							pathname: "/cart/[slug]",
+							query: { slug: userId },
+						}}
 						className="border-transparent border-b hover:border-gray-200 hover:text-gray-200"
 					>
 						Cart (0)

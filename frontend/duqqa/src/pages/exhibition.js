@@ -7,37 +7,22 @@ import { useAuth } from "@/utils/AuthContext";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
+import { redirect } from "next/navigation";
 
 
 export default function Exhibition() {
 	const { token } = useAuth();
 	const router = useRouter();
+	
 
 	useEffect(() => {
 		if (!token) {
-			router.push("/login");
+			router.replace("/login");
 		}
 	}, [token, router]);
 
 	const [data, setData] = useState(null);
 	console.log(token);
-
-	// useEffect(() => {
-	// 	const fetchData = async () => {
-	// 		try {
-	// 			const response = await axios.get("http://localhost:5000/api/products", {
-	// 				headers: {
-	// 					Authorization: `Bearer ${token}`, // assuming your token is a Bearer token
-	// 				},
-	// 			});
-	// 			setData(response.data);
-	// 		} catch (error) {
-	// 			console.error("Error fetching data: ", error);
-	// 		}
-	// 	};
-
-	// 	fetchData();
-	// }, []);
 
 	const { data: products, isLoading } = useQuery({
 		queryFn: () => fetchAllProducts(token),
@@ -75,24 +60,6 @@ export default function Exhibition() {
 			<div className="flex h-full w-full gap-10 lg:gap-30 flex-wrap justify-evenly ">
 				{products?.map((product) => (
 					<>
-						<Cards
-							key={product._id}
-							url={product.imageUrl}
-							id={product._id}
-							productName={product.productName}
-							description={product.description}
-							price={product.price}
-							className="slide "
-						/>
-						<Cards
-							key={product._id}
-							url={product.imageUrl}
-							id={product._id}
-							productName={product.productName}
-							description={product.description}
-							price={product.price}
-							className="slide "
-						/>
 						<Cards
 							key={product._id}
 							url={product.imageUrl}

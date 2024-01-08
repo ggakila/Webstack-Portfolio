@@ -18,8 +18,8 @@ router.get("/products/:id", fetchProductById);
 
 router.post("/products", createProduct);
 
-router.put("/products/:id", authHandler, updateProductById);
+router.put("/products/:id", updateProductById);
 
-router.delete("/products/:id", authHandler, deleteProductById);
+router.delete("/products/:id", deleteProductById);
 
 module.exports = router;

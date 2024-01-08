@@ -10,15 +10,15 @@ import { useEffect } from "react";
 
 const schema = yup
 	.object({
-		productName: yup.string().required(),
-		description: yup.string().required(),
-		imageUrl: yup.string().url().required(),
-		price: yup.number().positive().required("Please enter a price"),
+		productName: yup.string().required("Enter valid product name"),
+		description: yup.string().required('Enter product description'),
+		imageUrl: yup.string().url().required('Enter product image URL'),
+		price: yup.number().required("Please enter a price"),
 	})
 	.required();
 
 export default function ProductForm() {
-	const { token } = useAuth();
+	const { token, userId } = useAuth();
 	const router = useRouter();
 
 	useEffect(() => {
@@ -38,12 +38,13 @@ export default function ProductForm() {
 
 	const onSubmit = async (data) => {
 		try {
+			
 			const response = await fetch("http://localhost:5000/api/products/", {
 				method: "POST",
 				headers: {
 					"Content-Type": "application/json",
 				},
-				body: JSON.stringify(data),
+				body: JSON.stringify(data), // Send the product data with the userId
 			});
 
 			if (!response.ok) {
@@ -51,11 +52,12 @@ export default function ProductForm() {
 			}
 
 			console.log("Product successfully submitted:", data);
-			reset(); 
+			reset();
 		} catch (error) {
 			console.error("Error submitting product:", error);
 		}
 	};
+
 
 	return (
 		<div className="text-white   h-screen flex flex-col items-start justify-start gap-10 p-10 md:p-20">

@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import CartItem from "@/components/CartItem";
 import Image from "next/image";
 import Link from "next/link";
@@ -27,10 +27,10 @@ export default function Cart() {
 	if (isLoading) {
 		return <div>is Loading...</div>;
 	}
-	
+
 	return (
-		<div className="flex flex-col-reverse sm:flex-row">
-			<div className=" flex justify-start w-full sm:w-1/2 xl:w-1/3 flex-col items-center p-10 gap-5 h-screen">
+		<div className="flex flex-col-reverse sm:flex-row items-center justify-center p-10">
+			<div className=" flex justify-start w-full sm:w-1/2 flex-col items-center p-10 gap-5 h-screen">
 				<div className="flex flex-col justify-start items-start w-full gap-3  ">
 					<Link
 						href="/"
@@ -81,7 +81,7 @@ export default function Cart() {
 				<Image
 					src="https://4.bp.blogspot.com/_0u4v0vUqHLE/SsUR7vP6xII/AAAAAAAABgg/rAWy_QhGQEI/s1600/Red+Cart.jpg"
 					fill={true}
-					alt="userCart item"
+					alt="userCart"
 					style={{ objectFit: "cover" }}
 				/>
 			</div> */}

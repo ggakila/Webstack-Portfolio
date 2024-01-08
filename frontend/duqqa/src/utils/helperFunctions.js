@@ -92,29 +92,35 @@ export const deleteProductById = async (productId) => {
 };
 
 // These ones deal with the carts (getting the cart data, deleting items and adding )
-export const getCart = async () => {
+export const getCart = async (userId) => {
 	try {
-		const response = await axios.get(`${BASE_URL}/cart`);
-		return response.data;
+		const response = await axios.get(`${BASE_URL}/users/cart/${userId}`);
+		return response.data.userCart;
 	} catch (error) {
 		throw error.response ? error.response.data : error.message;
 	}
 };
 
-export const addToCart = async (cartItem) => {
+export const addToCart = async (cartItem, userId) => {
 	try {
-		const response = await axios.post(`${BASE_URL}/cart/add`, cartItem);
-		return response.data;
-	} catch (error) {
-		throw error.response ? error.response.data : error.message;
-	}
-};
-
-export const deleteFromCart = async (cartItem) => {
-	try {
-		const response = await axios.delete(`${BASE_URL}/cart/delete`, {
-			data: cartItem,
+		const response = await axios.post(`${BASE_URL}/users/cart/add/${userId}`, {
+			...cartItem,
+			userId,
 		});
+		return response.data;
+	} catch (error) {
+		throw error.response ? error.response.data : error.message;
+	}
+};
+
+export const deleteFromCart = async (cartItem, userId) => {
+	try {
+		const response = await axios.delete(
+			`${BASE_URL}/users/cart/delete/${userId}`,
+			{
+				data: cartItem,
+			}
+		);
 		return response.data;
 	} catch (error) {
 		throw error.response ? error.response.data : error.message;

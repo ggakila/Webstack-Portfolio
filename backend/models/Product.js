@@ -19,11 +19,11 @@ const productSchema = new Schema(
 			type: Number,
 			required: true,
 		},
-		createdBy: {
-			type: Schema.Types.ObjectId,
-			ref: "User",
-			required: false,
-		},
+		// createdBy: {
+		// 	type: Schema.Types.ObjectId,
+		// 	ref: "User",
+		// 	required: true,
+		// },
 	},
 	{
 		timestamps: true, 
@@ -33,3 +33,4 @@ const productSchema = new Schema(
 const Product = mongoose.model("Product", productSchema);
 
 module.exports = Product;
+ 
