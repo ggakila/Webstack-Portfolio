@@ -55,7 +55,7 @@ exports.addToCart = async (req, res) => {
 
 exports.deleteFromCart = async (req, res) => {
 	try {
-		const { productId } = req.body;
+		const { productId } = req.params;
 		const { userId } = req.params;// Assuming the user ID is stored in req.user after authentication
 
 		// Find the user by ID

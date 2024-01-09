@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useAuth } from "@/utils/AuthContext";
 import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { getCart } from "@/utils/helperFunctions";
 
@@ -13,24 +13,28 @@ export default function Cart() {
 	const router = useRouter();
 	const [cart, setCart] = useState([]);
 
+	const fetchCart = useCallback(async () => {
+		const response = await getCart(userId);
+		setCart(response);
+		console.log(response);
+	}, [userId]);
+
 	useEffect(() => {
 		if (!token) {
 			router.push("/login");
 		}
 	}, [token, router]);
 
-	// const { data: cart, isLoading } = useQuery({
-	// 	queryFn: () => getCart(userId),
-	// 	queryKey: ["cart"],
-	// });
 	useEffect(() => {
-		async function fetchCart() {
-			const response = await getCart(userId);
-			setCart(response);
-			console.log(response);
-		}
 		fetchCart();
-	}, [userId]);
+	}, [fetchCart]);
+
+	const handleRemove = (productIdToRemove) => {
+		setCart((prevCart) =>
+			prevCart.filter((item) => item.product._id !== productIdToRemove)
+		);
+	};
+
 	const cartnum = cart?.length;
 
 	// if (isLoading) {
@@ -41,19 +45,19 @@ export default function Cart() {
 		0
 	);
 	return (
-		<div className="flex  items-center justify-center p-10">
-			<div className=" flex justify-start w-full sm:w-3/4 lg:w-1/2 flex-col items-center  gap-5 h-screen">
-				<div className="flex flex-col justify-start items-start w-full gap-3  ">
-					{/* <Link
+		<div className="flex flex-col items-center justify-center p-10">
+					<Link
 						href="/"
-						className="w-[40px] h-[40px] relative"
+						className="w-[40px] h-[40px] absolute top-10 left-10"
 					>
 						<Image
 							src="/images/back.svg"
 							fill={true}
 							alt="back button home"
 						/>
-					</Link> */}
+					</Link>
+			<div className=" flex justify-start w-full sm:w-3/4 lg:w-1/2 flex-col items-center  gap-5 h-screen mt-16">
+				<div className="flex flex-col justify-start items-start w-full gap-3  ">
 					<h1 className="text-3xl font-bold">Cart.</h1>
 					<h1 className="text-left text-xl ">
 						You are about to acquire the ({cartnum}) work(s)
@@ -63,10 +67,13 @@ export default function Cart() {
 					{cart.map((item) => (
 						<>
 							<CartItem
-								key={item._id}
+								key={item.product._id}
 								imageUrl={item.product.imageUrl}
 								price={item.product.price}
 								productName={item.product.productName}
+								productId={item.product._id}
+								userId={userId}
+								onRemove={handleRemove}
 							/>
 						</>
 					))}
@@ -89,14 +96,6 @@ export default function Cart() {
 					</button>
 				</div>
 			</div>
-			{/* <div className="sm:w-1/2 xl:w-2/3 h-[200px] sm:h-screen relative md:fixed right-0">
-				<Image
-					src="https://4.bp.blogspot.com/_0u4v0vUqHLE/SsUR7vP6xII/AAAAAAAABgg/rAWy_QhGQEI/s1600/Red+Cart.jpg"
-					fill={true}
-					alt="userCart"
-					style={{ objectFit: "cover" }}
-				/>
-			</div> */}
 		</div>
 	);
 }

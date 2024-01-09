@@ -5,7 +5,7 @@ const authHandler = require("../middleware/authHandler");
 
 router.get("/cart/:userId", userControllers.getCart);
 router.post("/cart/add/:userId", userControllers.addToCart);
-router.delete("/cart/delete", userControllers.deleteFromCart);
+router.delete("/cart/delete/:userId/:productId", userControllers.deleteFromCart);
 
 module.exports = router; 
 

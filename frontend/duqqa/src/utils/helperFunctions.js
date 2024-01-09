@@ -113,13 +113,10 @@ export const addToCart = async (cartItem, userId) => {
 	}
 };
 
-export const deleteFromCart = async (cartItem, userId) => {
+export const deleteFromCart = async (productId, userId) => {
 	try {
 		const response = await axios.delete(
-			`${BASE_URL}/users/cart/delete/${userId}`,
-			{
-				data: cartItem,
-			}
+			`${BASE_URL}/users/cart/delete/${userId}/${productId}`,
 		);
 		return response.data;
 	} catch (error) {
