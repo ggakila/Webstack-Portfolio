@@ -1,4 +1,3 @@
-"use client";
 import CartItem from "@/components/CartItem";
 import Image from "next/image";
 import Link from "next/link";
@@ -23,6 +22,7 @@ export default function Cart() {
 		queryKey: ["cart"],
 	});
 	console.log(cart);
+	const cartnum = cart?.length;
 
 	if (isLoading) {
 		return <div>is Loading...</div>;
@@ -30,7 +30,7 @@ export default function Cart() {
 
 	return (
 		<div className="flex flex-col-reverse sm:flex-row items-center justify-center p-10">
-			<div className=" flex justify-start w-full sm:w-1/2 flex-col items-center p-10 gap-5 h-screen">
+			<div className=" flex justify-start w-full sm:w-3/4 lg:w-1/2 flex-col items-center p-10 gap-5 h-screen">
 				<div className="flex flex-col justify-start items-start w-full gap-3  ">
 					<Link
 						href="/"
@@ -44,7 +44,7 @@ export default function Cart() {
 					</Link>
 					<h1 className="text-3xl font-bold">Cart.</h1>
 					<h1 className="text-left text-xl ">
-						You are about to acquire the following works
+						You are about to acquire the ({cartnum}) work(s)
 					</h1>
 				</div>
 				<div className="w-full">

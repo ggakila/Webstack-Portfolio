@@ -3,6 +3,7 @@ import Link from "next/link";
 import { useAuth } from "@/utils/AuthContext";
 import { useRouter } from "next/router";
 import { useEffect , useState } from "react";
+import { getCart } from "@/utils/helperFunctions";
 
 
 
@@ -16,9 +17,22 @@ import { useEffect , useState } from "react";
 // 	subsets: ["latin"],
 // });
 
+
 export default function Header() {
 	const { username, token, logout, userId } = useAuth();
+	const [cart, setCart] = useState([]);
 	const router = useRouter();
+
+	useEffect(() => {
+		async function fetchCart() {
+			const response = await getCart(userId);
+			setCart(response);
+			console.log(response);
+		}
+		fetchCart();
+	}, [userId]);
+	const cartnum = cart?.length;
+
 	return (
 		<div
 			className={`mix-blend-difference text-gray-200 w-full  py-4 md:py-8 flex justify-between items-center px-10 md:px-20 font-bold z-10 bg-transparent  md:sticky top-[1px] `}
@@ -39,13 +53,10 @@ export default function Header() {
 						Showcase
 					</Link>
 					<Link
-						href={{
-							pathname: "/cart/[slug]",
-							query: { slug: userId },
-						}}
+						href='/cart'
 						className="border-transparent border-b hover:border-gray-200 hover:text-gray-200"
 					>
-						Cart (0)
+						Cart ({cartnum})
 					</Link>
 					{token ? (
 						<Link

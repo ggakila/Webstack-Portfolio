@@ -6,6 +6,7 @@ import Link from "next/link";
 import { useAuth } from "@/utils/AuthContext";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
+import { createProduct } from "@/utils/helperFunctions";
 
 
 const schema = yup
@@ -35,29 +36,10 @@ export default function ProductForm() {
 	} = useForm({
 		resolver: yupResolver(schema),
 	});
-
-	const onSubmit = async (data) => {
-		try {
-			
-			const response = await fetch("http://localhost:5000/api/products/", {
-				method: "POST",
-				headers: {
-					"Content-Type": "application/json",
-				},
-				body: JSON.stringify(data), // Send the product data with the userId
-			});
-
-			if (!response.ok) {
-				throw new Error(`HTTP error! Status: ${response.status}`);
-			}
-
-			console.log("Product successfully submitted:", data);
-			reset();
-		} catch (error) {
-			console.error("Error submitting product:", error);
-		}
-	};
-
+	const onSubmit = (data) => {
+		createProduct(data)
+		reset();
+	} 
 
 	return (
 		<div className="text-white   h-screen flex flex-col items-start justify-start gap-10 p-10 md:p-20">
