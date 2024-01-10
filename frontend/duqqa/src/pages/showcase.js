@@ -1,12 +1,16 @@
+'use client'
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import Image from "next/image";
 import Link from "next/link";
 import { useAuth } from "@/utils/AuthContext";
-import { useRouter } from "next/router";
-import { useCallback, useEffect, useMemo } from "react";
+import { useRouter } from "next/navigation";
+import { useEffect } from "react";
 import { createProduct } from "@/utils/helperFunctions";
+import React from "react";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 
 const schema = yup
@@ -19,14 +23,14 @@ const schema = yup
 	.required();
 
 export default function ProductForm() {
-	const { token, userId } = useAuth();
+	const { token, loading } = useAuth();
 	const router = useRouter();
 
-	useMemo(() => {
-		if (!token) {
-			router.push("/auth/login");
+	useEffect(() => {
+		if (!loading && !token) {
+			router.replace("/auth/login");
 		}
-	}, [token, router]);
+	}, [token, router, loading]);
 
 	const {
 		register,
@@ -36,10 +40,24 @@ export default function ProductForm() {
 	} = useForm({
 		resolver: yupResolver(schema),
 	});
-	const onSubmit = (data) => {
-		createProduct(data)
-		reset();
-	} 
+
+	const notify = () => {
+		toast.success("Your work has been added to our collection!", {
+			theme: "dark",
+			pauseOnFocusLoss: false,
+			position: toast.POSITION.TOP_CENTER,
+			autoClose: 200,
+			hideProgressBar: true,
+		});
+	};
+
+	const onSubmit = async (data) => {
+		const isSuccessful = await createProduct(data);
+		if (isSuccessful) {
+			reset();
+			notify();
+		}
+	}; 
 
 	return (
 		<div className="text-white   h-screen flex flex-col items-start justify-start gap-10 p-10 md:p-20">
@@ -90,7 +108,6 @@ export default function ProductForm() {
 					<p className="text-red-500">{errors.imageUrl?.message}</p>
 				</div>
 
-
 				<div>
 					<input
 						{...register("price")}
@@ -105,6 +122,7 @@ export default function ProductForm() {
 					type="submit"
 					className=" py-3 px-5 w-[200px] rounded-full bg-gray-300 text-gray-900 text-lg font-semibold cursor-pointer  hover:bg-white hover:shadow-white shadow-md"
 				/>
+				<ToastContainer limit={1} />
 			</form>
 		</div>
 	);

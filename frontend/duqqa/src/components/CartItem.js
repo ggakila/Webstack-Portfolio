@@ -2,15 +2,30 @@
 import Image from "next/image";
 import { deleteFromCart } from "@/utils/helperFunctions";
 import { useAuth } from "@/utils/AuthContext";
+import React from "react";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function CartItem({ productId, imageUrl, price, productName, onRemove}) {
 	const { userId } = useAuth();
 	console.log(userId);
 
+	const notify = () => {
+		toast.success("Removed from Cart", {
+			theme: "dark",
+			pauseOnFocusLoss: false,
+			position: toast.POSITION.TOP_CENTER,
+			autoClose: 200,
+			hideProgressBar: true,
+		});
+	};
+
 	const handleRemove = async () => {
 		try {
-			await deleteFromCart( productId , userId);
-			console.log("Done carted del");
+			const success = await deleteFromCart( productId , userId);
+			if (success) {
+				notify();
+			}
 			onRemove(productId);
 		} catch (error) {
 			console.log("Error deleting from cart");
@@ -44,6 +59,7 @@ export default function CartItem({ productId, imageUrl, price, productName, onRe
 			>
 				remove
 			</button>
+			<ToastContainer limit={3} />
 		</div>
 	);
 }

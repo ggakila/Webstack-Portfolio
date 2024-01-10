@@ -3,11 +3,19 @@ import Image from "next/image";
 import { useRouter } from "next/router";
 import { useQuery } from "@tanstack/react-query";
 import { fetchProductById } from "../../utils/helperFunctions";
+import { addToCart } from "@/utils/helperFunctions";
+import { useAuth } from "@/utils/AuthContext";
+
+
+
 
 export default function ProductPage() {
+	const { userId } = useAuth();
 	const router = useRouter();
 	const productId = router.query.slug;
-	console.log(productId);
+
+	
+	
 	const {
 		data: product,
 		isLoading,
@@ -17,7 +25,15 @@ export default function ProductPage() {
 		queryKey: ["product", productId],
 	});
 
-	console.log(product);
+	const cartItem = {
+		productId: productId,
+		quantity: 1,
+	};
+
+	const onSubmit = () => {
+		addToCart(cartItem, userId);
+		console.log(userId, cartItem);
+	}; 
 
 	if (isLoading) {
 		return <div>Loading...</div>;
@@ -52,7 +68,10 @@ export default function ProductPage() {
 				</div>
 				<div className="flex">
 					<p className="w-1/4"></p>
-					<button className="w-3/4 border border-gray-500 p-2 rounded-full hover:bg-gray-300 hover:text-gray-900">
+					<button
+						onClick={onSubmit}
+						className="w-3/4 border border-gray-500 p-2 rounded-full hover:bg-gray-300 hover:text-gray-900"
+					>
 						Add to Cart
 					</button>
 				</div>

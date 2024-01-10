@@ -1,20 +1,34 @@
 import Image from "next/image";
 import Link from "next/link";
 import { deleteProductById } from "@/utils/helperFunctions";
+import React from "react";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
-export default function Cards({ url, id, productName, price}) {
+export default function Cards({ url, id, productName, price, onRemove}) {
 const handleDelete = async () => {
     try {
-      await deleteProductById(id);
+      const success = await deleteProductById(id);
+	  if (success) {
+			notify();
+		}
+		onRemove(id);
     } catch (error) {
 
       console.error(error);
     }
   };
 
-  const handleEdit = async () => {
+  const notify = () => {
+		toast.success("Deleted successfully", {
+			theme: "dark",
+			pauseOnFocusLoss: false,
+			position: toast.POSITION.TOP_CENTER,
+			autoClose: 200,
+			hideProgressBar: true,
+		});
+	};
 
-  }
 
 	return (
 		<div className="w-full h-[300px] my-6 border border-gray-500 rounded-lg">
@@ -52,6 +66,7 @@ const handleDelete = async () => {
 				>
 					delete
 				</button>
+				<ToastContainer limit={1} />
 			</div>
 		</div>
 	);

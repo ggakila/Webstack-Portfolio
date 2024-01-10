@@ -64,7 +64,7 @@ export const fetchProductById = async (productId) => {
 export const createProduct = async (productData) => {
 	try {
 		const response = await axios.post(`${BASE_URL}/products`, productData);
-		return response.data;
+		return true;
 	} catch (error) {
 		throw error.response ? error.response.data : error.message;
 	}
@@ -76,7 +76,7 @@ export const updateProductById = async (productId, productData) => {
 			`${BASE_URL}/products/${productId}`,
 			productData
 		);
-		return response.data;
+		return true;
 	} catch (error) {
 		throw error.response ? error.response.data : error.message;
 	}
@@ -107,7 +107,7 @@ export const addToCart = async (cartItem, userId) => {
 			...cartItem,
 			userId,
 		});
-		return response.data;
+		return true;
 	} catch (error) {
 		throw error.response ? error.response.data : error.message;
 	}
@@ -118,7 +118,7 @@ export const deleteFromCart = async (productId, userId) => {
 		const response = await axios.delete(
 			`${BASE_URL}/users/cart/delete/${userId}/${productId}`,
 		);
-		return response.data;
+		return true;
 	} catch (error) {
 		throw error.response ? error.response.data : error.message;
 	}

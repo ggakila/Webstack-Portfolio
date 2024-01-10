@@ -3,13 +3,13 @@ import CartItem from "@/components/CartItem";
 import Image from "next/image";
 import Link from "next/link";
 import { useAuth } from "@/utils/AuthContext";
-import { useRouter } from "next/router";
-import { useEffect, useState, useCallback, useMemo} from "react";
+import { useRouter } from "next/navigation";
+import { useEffect, useState, useCallback} from "react";
 import { useQuery } from "@tanstack/react-query";
 import { getCart } from "@/utils/helperFunctions";
 
 export default function Cart() {
-	const { token, userId } = useAuth();
+	const { token, userId, loading } = useAuth();
 	const router = useRouter();
 	const [cart, setCart] = useState([]);
 
@@ -21,11 +21,11 @@ export default function Cart() {
 	}, [userId]);
 
 
-	useMemo(() => {
-		if (!token) {
-			router.push("/auth/login");
+	useEffect(() => {
+		if (!loading && !token) {
+			router.replace("/auth/login");
 		}
-	}, [token, router]);
+	}, [token, router, loading]);
 
 	useEffect(() => {
 		fetchCart();

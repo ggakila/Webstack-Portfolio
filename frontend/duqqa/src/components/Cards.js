@@ -2,21 +2,34 @@ import Image from "next/image";
 import Link from "next/link";
 import { addToCart } from "@/utils/helperFunctions";
 import { useAuth } from "@/utils/AuthContext";
+import React from "react";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function Cards({ url, id, productName,  price }) {
 
 	const { userId } = useAuth();
-
-	// const userId = userId.toString();
+	const notify = () => {
+		toast.success("Added to Cart", {
+			theme: "dark",
+			pauseOnFocusLoss: false,
+			position: toast.POSITION.TOP_CENTER,
+			autoClose: 200,
+			hideProgressBar: true,
+		});
+	};
 
 	const cartItem = {
 		productId: id,
 		quantity: 1,
 	};
 	
-	const onSubmit = () => {
-		addToCart(cartItem, userId)
-		console.log(userId, cartItem);
+	const onSubmit = async () => {
+		const isSuccessful = await addToCart(cartItem, userId);
+		if (isSuccessful) {
+			notify();
+		}
+		
 	}; 
 
 	return (
@@ -46,6 +59,7 @@ export default function Cards({ url, id, productName,  price }) {
 				>
 					Add to Cart
 				</button>
+				<ToastContainer limit={3} />
 			</div>
 		</div>
 	);

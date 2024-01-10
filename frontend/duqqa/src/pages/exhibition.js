@@ -1,30 +1,35 @@
+'use client'
 import Cards from "@/components/Cards";
 import Link from "next/link";
 import Image from "next/image";
 import { useQuery } from "@tanstack/react-query";
 import { fetchAllProducts } from "../utils/helperFunctions";
 import { useAuth } from "@/utils/AuthContext";
-import { useCallback, useEffect, useMemo } from "react";
+import { useEffect } from "react";
 import { useRouter } from "next/router";
 
 
+
 export default function Exhibition() {
-	const { token } = useAuth();
+	const { token , loading } = useAuth();
 	const router = useRouter();
 	
+	
 
-	useMemo(() => {
-		if (!token) {
+	useEffect(() => {
+		if (!loading && !token) {
 			router.replace("/auth/login");
 		}
-	}, [token, router]);
+	}, [token, router, loading]);
 
 	console.log(token);
 
 	const { data: products, isLoading } = useQuery({
+		queryKey: ["products", token],
 		queryFn: () => fetchAllProducts(token),
-		queryKey: ["products"],
+		enabled: !!token, 
 	});
+
 	console.log(products);
 
 	if (isLoading) {

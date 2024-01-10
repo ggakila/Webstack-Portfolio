@@ -15,6 +15,7 @@ export const AuthProvider = ({ children }) => {
 	const [token, setToken] = useState(null);
 	const [userId, setUserId] = useState(null);
 	const [username, setUsername] = useState(null);
+	const [loading, setLoading] = useState(true);
 
 	// useEffect to run on mount and check if token is in localStorage
 	useEffect(() => {
@@ -26,6 +27,7 @@ export const AuthProvider = ({ children }) => {
 			if (storedUserDetails) {
 				setUserId(storedUserDetails.userId);
 				setUsername(storedUserDetails.username);
+				setLoading(false);
 			}
 		}
 	}, []);
@@ -56,6 +58,7 @@ export const AuthProvider = ({ children }) => {
 		username,
 		login,
 		logout,
+		loading,
 	};
 
 	return (
