@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useAuth } from "@/utils/AuthContext";
 import { useRouter } from "next/router";
-import { useEffect } from "react";
+import { useCallback, useEffect } from "react";
 import { createProduct } from "@/utils/helperFunctions";
 
 
@@ -22,7 +22,7 @@ export default function ProductForm() {
 	const { token, userId } = useAuth();
 	const router = useRouter();
 
-	useEffect(() => {
+	useCallback(() => {
 		if (!token) {
 			router.push("/login");
 		}

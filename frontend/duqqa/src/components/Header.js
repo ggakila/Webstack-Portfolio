@@ -1,8 +1,9 @@
+'use client'
 import { Comfortaa , Tangerine } from 'next/font/google'
 import Link from "next/link";
 import { useAuth } from "@/utils/AuthContext";
 import { useRouter } from "next/router";
-import { useEffect , useState } from "react";
+import { useCallback, useEffect , useState } from "react";
 import { getCart } from "@/utils/helperFunctions";
 
 
@@ -22,8 +23,7 @@ export default function Header() {
 	const { username, token, logout, userId } = useAuth();
 	const [cart, setCart] = useState([]);
 	const router = useRouter();
-
-	useEffect(() => {
+useCallback(() => {
 		async function fetchCart() {
 			const response = await getCart(userId);
 			setCart(response);
@@ -31,7 +31,7 @@ export default function Header() {
 		}
 		fetchCart();
 	}, [userId]);
-	const cartnum = cart?.length;
+	// const cartnum = cart.length;
 
 	return (
 		<div
@@ -56,7 +56,8 @@ export default function Header() {
 						href='/cart'
 						className="border-transparent border-b hover:border-gray-200 hover:text-gray-200"
 					>
-						Cart ({cartnum})
+						{/* Cart ({cartnum}) */}
+						Cart
 					</Link>
 					{token ? (
 						<Link
@@ -76,12 +77,12 @@ export default function Header() {
 							Login
 						</Link>
 					)}
-					{/* Optionally, you can add a logout button if the user is logged in */}
 					{token && (
 						<button
 							onClick={() => {
-								logout(); // Call your logout function from the AuthContext
-								router.push("/"); // Redirect to the home page after logout
+								logout();
+								setCart([]); 
+								router.push("/"); 
 							}}
 							className="border-transparent border-b hover:border-gray-200 hover:text-gray-200 cursor-pointer"
 						>

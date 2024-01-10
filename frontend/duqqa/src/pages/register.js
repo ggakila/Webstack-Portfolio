@@ -53,7 +53,7 @@ export default function Login() {
 
 			console.log("Credentials successfully submitted:", data);
 			reset();
-            router.push('/')
+            router.push('/login')
 		} catch (error) {
 			console.error("Error submitting credentials:", error);
 		}

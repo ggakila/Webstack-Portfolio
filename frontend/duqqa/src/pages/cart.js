@@ -15,11 +15,13 @@ export default function Cart() {
 
 	const fetchCart = useCallback(async () => {
 		const response = await getCart(userId);
-		setCart(response);
-		console.log(response);
+		const validItems = response.filter((item) => item.product !== null);
+		setCart(validItems);
+		console.log(validItems);
 	}, [userId]);
 
-	useEffect(() => {
+
+	useCallback(() => {
 		if (!token) {
 			router.push("/login");
 		}
@@ -41,21 +43,23 @@ export default function Cart() {
 	// 	return <div>is Loading...</div>;
 	// }
 	const totalPrice = cart.reduce(
-		(total, item) => total + item.product.price * item.quantity,
+		(total, item) =>
+			item.product ? total + item.product.price * item.quantity : total,
 		0
 	);
+
 	return (
 		<div className="flex flex-col items-center justify-center p-10">
-					<Link
-						href="/"
-						className="w-[40px] h-[40px] absolute top-10 left-10"
-					>
-						<Image
-							src="/images/back.svg"
-							fill={true}
-							alt="back button home"
-						/>
-					</Link>
+			<Link
+				href="/"
+				className="w-[40px] h-[40px] absolute top-10 left-10"
+			>
+				<Image
+					src="/images/back.svg"
+					fill={true}
+					alt="back button home"
+				/>
+			</Link>
 			<div className=" flex justify-start w-full sm:w-3/4 lg:w-1/2 flex-col items-center  gap-5 h-screen mt-16">
 				<div className="flex flex-col justify-start items-start w-full gap-3  ">
 					<h1 className="text-3xl font-bold">Cart.</h1>
@@ -64,19 +68,19 @@ export default function Cart() {
 					</h1>
 				</div>
 				<div className="w-full">
-					{cart.map((item) => (
-						<>
-							<CartItem
-								key={item.product._id}
-								imageUrl={item.product.imageUrl}
-								price={item.product.price}
-								productName={item.product.productName}
-								productId={item.product._id}
-								userId={userId}
-								onRemove={handleRemove}
-							/>
-						</>
-					))}
+					{cart.map(
+						(item) =>
+							item.product && (
+								<CartItem
+									key={item.product._id}
+									imageUrl={item.product.imageUrl}
+									price={item.product.price}
+									productName={item.product.productName}
+									productId={item.product._id}
+									onRemove={handleRemove}
+								/>
+							)
+					)}
 				</div>
 				<div className="flex w-full justify-between p-3">
 					<h3>Total Price</h3>

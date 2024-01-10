@@ -4,10 +4,8 @@ import Image from "next/image";
 import { useQuery } from "@tanstack/react-query";
 import { fetchAllProducts } from "../utils/helperFunctions";
 import { useAuth } from "@/utils/AuthContext";
-import axios from "axios";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect } from "react";
 import { useRouter } from "next/router";
-import { redirect } from "next/navigation";
 
 
 export default function Exhibition() {
@@ -15,13 +13,12 @@ export default function Exhibition() {
 	const router = useRouter();
 	
 
-	useEffect(() => {
+	useCallback(() => {
 		if (!token) {
 			router.replace("/login");
 		}
 	}, [token, router]);
 
-	const [data, setData] = useState(null);
 	console.log(token);
 
 	const { data: products, isLoading } = useQuery({
