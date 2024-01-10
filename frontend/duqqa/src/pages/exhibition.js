@@ -4,7 +4,7 @@ import Image from "next/image";
 import { useQuery } from "@tanstack/react-query";
 import { fetchAllProducts } from "../utils/helperFunctions";
 import { useAuth } from "@/utils/AuthContext";
-import { useCallback, useEffect } from "react";
+import { useCallback, useEffect, useMemo } from "react";
 import { useRouter } from "next/router";
 
 
@@ -13,9 +13,9 @@ export default function Exhibition() {
 	const router = useRouter();
 	
 
-	useCallback(() => {
+	useMemo(() => {
 		if (!token) {
-			router.replace("/login");
+			router.replace("/auth/login");
 		}
 	}, [token, router]);
 

@@ -21,42 +21,31 @@ import { getCart } from "@/utils/helperFunctions";
 
 export default function Header() {
 	const { username, token, logout, userId } = useAuth();
-	const [cart, setCart] = useState([]);
-	const router = useRouter();
-useCallback(() => {
-		async function fetchCart() {
-			const response = await getCart(userId);
-			setCart(response);
-			console.log(response);
-		}
-		fetchCart();
-	}, [userId]);
-	// const cartnum = cart.length;
+
 
 	return (
 		<div
-			className={`mix-blend-difference text-gray-200 w-full  py-4 md:py-8 flex justify-between items-center px-10 md:px-20 font-bold z-10 bg-transparent  md:sticky top-[1px] `}
+			className={`mix-blend-difference text-gray-400 w-full  py-4 md:py-8 flex justify-between items-center px-10 md:px-20 font-bold z-10 bg-transparent  md:sticky top-[1px] `}
 		>
-			<h1 className={`font-bold text-7xl `}>duqqa</h1>
-			<div className="flex  gap-2 text-2xl text-right">
-				<div className="flex flex-col md:flex-row  justify-end text-left gap-2 md:gap-5 font-light text-[2vw]  md:text-[1.2vw]">
+			<Link href="/" className={`font-bold text-4xl text-white `}>duqqa</Link>
+			<div className="flex  gap-2 text-xl text-right">
+				<div className="flex   justify-center text-left gap-2 md:gap-5 font-light text-[10px]  md:text-[14px]">
 					<Link
 						href="/exhibition"
-						className="border-transparent border-b hover:border-gray-200 hover:text-gray-200 font-extralight"
+						className="border-transparent border-b-2 hover:border-gray-200 hover:text-white font-extralight py-2"
 					>
 						Exhibition
 					</Link>
 					<Link
 						href="/showcase"
-						className="border-transparent border-b hover:border-gray-200 hover:text-gray-200 font-extralight"
+						className="border-transparent border-b-2 hover:border-gray-100 hover:text-white py-2"
 					>
 						Showcase
 					</Link>
 					<Link
 						href='/cart'
-						className="border-transparent border-b hover:border-gray-200 hover:text-gray-200"
+						className="border-transparent border-b-2 hover:border-gray-200 hover:text-white py-2"
 					>
-						{/* Cart ({cartnum}) */}
 						Cart
 					</Link>
 					{token ? (
@@ -65,30 +54,19 @@ useCallback(() => {
 								pathname: "/profile/[slug]",
 								query: { slug: username },
 							}}
-							className="border-transparent border-b hover:border-gray-200 hover:text-gray-200"
+							className="border-transparent border-b-2 hover:border-gray-200 hover:text-white py-2"
 						>
 							{username}
 						</Link>
 					) : (
 						<Link
-							href="/login"
-							className="border-transparent border-b hover:border-gray-200 hover:text-gray-200"
+							href="/auth/login"
+							className="border-transparent border-b-2 hover:border-gray-200 hover:text-white py-2"
 						>
 							Login
 						</Link>
 					)}
-					{token && (
-						<button
-							onClick={() => {
-								logout();
-								setCart([]); 
-								router.push("/"); 
-							}}
-							className="border-transparent border-b hover:border-gray-200 hover:text-gray-200 cursor-pointer"
-						>
-							Logout
-						</button>
-					)}
+				
 				</div>
 			</div>
 		</div>

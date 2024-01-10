@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useAuth } from "@/utils/AuthContext";
 import { useRouter } from "next/router";
-import { useCallback, useEffect } from "react";
+import { useCallback, useEffect, useMemo } from "react";
 import { createProduct } from "@/utils/helperFunctions";
 
 
@@ -22,9 +22,9 @@ export default function ProductForm() {
 	const { token, userId } = useAuth();
 	const router = useRouter();
 
-	useCallback(() => {
+	useMemo(() => {
 		if (!token) {
-			router.push("/login");
+			router.push("/auth/login");
 		}
 	}, [token, router]);
 

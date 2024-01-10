@@ -43,31 +43,43 @@ export default function Profile() {
 						alt="back button home"
 					/>
 				</Link>
-				<h1 className="text-8xl font-light ">{username}</h1>
-				<div className="flex flex-col  items-start justify-end text-left gap-3 text-2xl">
+				<h1 className="text-6xl font-light ">{username}</h1>
+				<div className="flex flex-col sm:flex-row items-center justify-between text-left gap-3 text-[14px] text-gray-300">
 					<Link
 						href="/exhibition"
-						className="border-transparent border-b-2 hover:border-gray-200 hover:text-gray-200"
+						className="border-transparent border-b-2 hover:border-gray-100 hover:text-white py-2"
 					>
 						Exhibition
 					</Link>
 					<Link
 						href="/showcase"
-						className="border-transparent border-b-2 hover:border-gray-200 hover:text-gray-200"
+						className="border-transparent border-b-2 hover:border-gray-100 hover:text-white py-2"
 					>
 						Showcase
 					</Link>
 					<Link
 						href="/cart"
-						className="border-transparent border-b-2 hover:border-gray-200 hover:text-gray-200"
+						className="border-transparent border-b-2 hover:border-gray-100 hover:text-white py-2"
 					>
 						Cart
 					</Link>
+						{token && (
+						<button
+							onClick={() => {
+								logout();
+								setCart([]); 
+								router.push("/"); 
+							}}
+							className="border-transparent border-b-2 hover:border-gray-100 hover:text-white cursor-pointer py-2"
+						>
+							Logout
+						</button>
+					)}
 					
 				</div>
 			</div>
 			<div className="w-full ">
-				<h1 className="text-2xl">Your works.</h1>
+				<h1 className="text-3xl">The power is in you hands.</h1>
 				<div>
 					<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 h-full w-full gap-10 lg:gap-30">
 						{products?.map((product) => (

@@ -29,7 +29,7 @@ export default function Cart() {
 	}
 
 	return (
-		<div className="flex flex-col-reverse sm:flex-row items-center justify-center p-10">
+		<div className="flex flex-col-reverse sm:flex-row items-center justify-center p-10 ">
 			<div className=" flex justify-start w-full sm:w-3/4 lg:w-1/2 flex-col items-center p-10 gap-5 h-screen">
 				<div className="flex flex-col justify-start items-start w-full gap-3  ">
 					<Link

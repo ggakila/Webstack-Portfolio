@@ -3,7 +3,7 @@ import Link from "next/link";
 import { addToCart } from "@/utils/helperFunctions";
 import { useAuth } from "@/utils/AuthContext";
 
-export default function Cards({ url, id, productName, description, price }) {
+export default function Cards({ url, id, productName,  price }) {
 
 	const { userId } = useAuth();
 
@@ -38,7 +38,6 @@ export default function Cards({ url, id, productName, description, price }) {
 			<div className="flex justify-between items-center px-5 w-full absolute bottom-0  bg-black opacity-80 py-3">
 				<h3 className="w-1/2 text-lg font-semibold tracking-wide">
 					{productName}
-					<span className="italic font-normal text-sm"> by</span> James Doe
 				</h3>
 				<p className="price font-bold">${price}</p>
 				<button

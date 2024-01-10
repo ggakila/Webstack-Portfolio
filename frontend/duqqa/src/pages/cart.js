@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useAuth } from "@/utils/AuthContext";
 import { useRouter } from "next/router";
-import { useEffect, useState, useCallback } from "react";
+import { useEffect, useState, useCallback, useMemo} from "react";
 import { useQuery } from "@tanstack/react-query";
 import { getCart } from "@/utils/helperFunctions";
 
@@ -21,9 +21,9 @@ export default function Cart() {
 	}, [userId]);
 
 
-	useCallback(() => {
+	useMemo(() => {
 		if (!token) {
-			router.push("/login");
+			router.push("/auth/login");
 		}
 	}, [token, router]);
 
@@ -49,7 +49,7 @@ export default function Cart() {
 	);
 
 	return (
-		<div className="flex flex-col items-center justify-center p-10">
+		<div className="flex flex-col items-center justify-center p-10 ">
 			<Link
 				href="/"
 				className="w-[40px] h-[40px] absolute top-10 left-10"

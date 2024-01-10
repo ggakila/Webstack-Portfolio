@@ -39,10 +39,6 @@ export default function ProductPage() {
 			</div>
 			<div className="w-full md:w-1/2 md:p-10 flex flex-col gap-10  h-full justify-center text-xl text-gray-400 font-light">
 				<div className="flex">
-					<p className="w-1/4">Artist</p>
-					<p className="w-3/4">xxx{product.artist}</p>
-				</div>
-				<div className="flex">
 					<p className="w-1/4">Title</p>
 					<p className="w-3/4">{product.productName}</p>
 				</div>

@@ -26,12 +26,12 @@ useEffect(() =>{
 
   return (
 		<main
-			className={`flex h-full flex-col items-center px-5 md:px-0 text w-full `}
+			className={`flex h-full flex-col items-center text w-full `}
 		>
 			<Header />
 			<Landing />
-			<Hero />
 			<Hero2 />
+			<Hero />
 			<SayHello />
 		</main>
 	);

@@ -5,7 +5,7 @@ import Image from "next/image";
 export default function contact() {
 	return (
 		<div className="flex flex-row-reverse justify-between w-full h-screen  p-10 md:p-20 text-gray-400">
-			<div className="flex flex-col justify-end text-left gap-5 md:gap-10  font-light text-[3vw] md:text-[1.2vw]">
+			<div className="flex flex-col justify-end text-left gap-5 md:gap-8  font-light text-[3vw] md:text-[1.2vw]">
 				<Link
 					href="/exhibition"
 					className="border-transparent border-b-2 hover:border-gray-200 hover:text-gray-200"
