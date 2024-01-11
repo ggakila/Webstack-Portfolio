@@ -5,15 +5,17 @@ import Image from "next/image";
 import { useQuery } from "@tanstack/react-query";
 import { fetchAllProducts } from "../utils/helperFunctions";
 import { useAuth } from "@/utils/AuthContext";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
+import Loader from "@/components/Loader";
+
 
 
 
 export default function Exhibition() {
 	const { token , loading } = useAuth();
 	const router = useRouter();
-	
+	const [load, setLoad] = useState(true);	
 	
 
 	useEffect(() => {
@@ -22,7 +24,13 @@ export default function Exhibition() {
 		}
 	}, [token, router, loading]);
 
-	console.log(token);
+	 useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoad(false);
+    }, 700); 
+
+    return () => clearTimeout(timer); 
+  }, []);
 
 	const { data: products, isLoading } = useQuery({
 		queryKey: ["products", token],
@@ -30,10 +38,8 @@ export default function Exhibition() {
 		enabled: !!token, 
 	});
 
-	console.log(products);
-
-	if (isLoading) {
-		return <div>is Loading...</div>;
+	if (isLoading || load) {
+		return <Loader load={load} />;
 	}
 	return (
 		<div className="exhibition h-full p-10 lg:px-20 font-light">

@@ -10,7 +10,7 @@ const comfortaa = Comfortaa({
 
 export default function Hero() {
 	return (
-		<div className="w-full h-[100vh] md:h-screen flex flex-col font-light bg-gray-200 text-gray-800 text-[1vw] relative overflow-hidden ">
+		<div className="w-full h-[100vh] md:h-screen flex flex-col font-light bg-gray-300 text-gray-800 text-[1vw] relative overflow-hidden ">
 			<div
 				data-scroll
 				data-scroll-speed="0.1"
@@ -80,9 +80,11 @@ export default function Hero() {
 			<div className=" h-full  w-full  flex items-center justify-center  text-center  gap-5 absolute text-xl">
 				<Link
 					href="/exhibition"
-					className="z-10 bg-white  rounded-full hover:bg-purple-600 hover:text-white "
+					className="z-10 bg-white  rounded-md hover:bg-purple-600 hover:text-white "
 				>
-					<p className=" px-8 py-6 font-semibold min-w-[200px] ">See collection</p>
+					<p className=" px-3 py-3  font-semibold   min-w-[200px] ">
+						See collection
+					</p>
 				</Link>
 			</div>
 		</div>

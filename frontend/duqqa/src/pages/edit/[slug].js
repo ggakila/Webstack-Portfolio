@@ -11,6 +11,8 @@ import { updateProductById, fetchProductById } from "@/utils/helperFunctions";
 import React from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Loader from "@/components/Loader";
+
 
 
 const schema = yup
@@ -42,7 +44,7 @@ export default function Edit() {
 		queryKey: ["product", productId],
 	});
 
-    {isLoading ? <div>loading...</div> : null}
+    {isLoading ? <Loader/> : null}
 
 	const {
   register,

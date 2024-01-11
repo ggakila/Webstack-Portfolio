@@ -1,6 +1,8 @@
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
 const User = require("../models/User");
+const secret = process.env.SECRET;
+
 
 exports.register = async (req, res) => {
 	try {
@@ -42,7 +44,7 @@ exports.login = async (req, res) => {
 		// Lets then gen a token for the user who has been auth and send to frontend
 		const token = jwt.sign(
 			{ userId: user._id, username: user.username },
-			"sneaky",
+			secret,
 			{
 				expiresIn: "1h",
 			}

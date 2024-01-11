@@ -3,7 +3,7 @@ import React from 'react'
 
 export default function Landing() {
   return (
-		<div className="h-[100vh]  w-full relative flex items-center justify-center bg-white overflow-hidden">
+		<div className="h-[100vh]  w-full relative flex items-center justify-center bg-zinc-900 overflow-hidden">
 			<div
 				data-scroll
 				data-scroll-speed="0.7"

@@ -31,9 +31,9 @@ export default function Cards({ url, id, productName,  price }) {
 		}
 		
 	}; 
-
+	
 	return (
-		<div className="w-[400px] h-[500px] my-6 border border-gray-700 rounded-lg relative">
+		<div className="w-[400px] h-[500px] my-6  rounded-lg relative">
 			<Link
 				href={{
 					pathname: "/art/[slug]",
@@ -45,7 +45,9 @@ export default function Cards({ url, id, productName,  price }) {
 					fill={true}
 					alt="art for sale"
 					style={{ objectFit: "cover" }}
-					className="rounded overflow-hidden hover:scale-105 transform transition-transform duration-300 ease-in-out"
+					loading="lazy"
+					quality={95}
+					className="rounded overflow-hidden hover:scale-105 transform transition-transform duration-500 ease-in-out"
 				/>
 			</Link>
 			<div className="flex justify-between items-center px-5 w-full absolute bottom-0  bg-black opacity-80 py-3">
@@ -54,7 +56,7 @@ export default function Cards({ url, id, productName,  price }) {
 				</h3>
 				<p className="price font-bold">${price}</p>
 				<button
-					className="border px-3 text-sm min-w-[100px] max-h-[30px] py-2 rounded-full hover:bg-gray-100 hover:text-gray-900"
+					className="border px-3 text-sm min-w-[100px] max-h-[30px] py-2 rounded-md hover:bg-gray-100 hover:text-gray-900"
 					onClick={onSubmit}
 				>
 					Add to Cart

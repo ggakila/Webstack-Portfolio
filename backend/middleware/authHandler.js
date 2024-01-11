@@ -1,5 +1,5 @@
 const jwt = require("jsonwebtoken");
-
+const secret = process.env.SECRET;
 const authHandler = async (req, res, next) => {
 	try {
 		// Extract the token from the Authorization header
@@ -14,7 +14,7 @@ const authHandler = async (req, res, next) => {
 		}
 
 		// Verify the token and extract the user ID
-		const decoded = jwt.verify(token, "sneaky");
+		const decoded = jwt.verify(token, secret);
 		const user = await User.findById(decoded.sub);
 
 		if (!user) {

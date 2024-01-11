@@ -50,6 +50,7 @@ export default function CartItem({ productId, imageUrl, price, productName, onRe
 				</div>
 				<h1 className="font-semibold text-xl">{productName}</h1>
 			</div>
+			<ToastContainer limit={3} />
 			<p className="font-bold">
 				$<span>{price}</span>
 			</p>
@@ -59,7 +60,6 @@ export default function CartItem({ productId, imageUrl, price, productName, onRe
 			>
 				remove
 			</button>
-			<ToastContainer limit={3} />
 		</div>
 	);
 }

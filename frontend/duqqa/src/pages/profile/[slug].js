@@ -6,11 +6,15 @@ import { useRouter } from "next/router";
 import { useQuery } from "@tanstack/react-query";
 import { fetchAllProducts } from "@/utils/helperFunctions";
 import { useAuth } from "@/utils/AuthContext";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import Loader from "@/components/Loader";
+
 
 export default function Profile() {
 	const router = useRouter();
 	const { token, logout, loading } = useAuth();
+	const [load, setLoad] = useState(true);	
+
 
 	const username = router.query.slug;
 
@@ -19,7 +23,21 @@ export default function Profile() {
 			router.replace("/auth/login");
 		}
 	}, [token, router, loading]);
-	console.log(token);
+	
+	useEffect(() => {
+		if (!loading && !token) {
+			router.replace("/auth/login");
+		}
+	}, [token, router, loading]);
+
+	 useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoad(false);
+    }, 700); 
+
+    return () => clearTimeout(timer); 
+  }, []);
+
 
 	const { data: products, isLoading , refetch} = useQuery({
 		queryFn: () => fetchAllProducts(token),
@@ -31,8 +49,8 @@ export default function Profile() {
 		refetch();
 	}
 
-	if (isLoading) {
-		return <div>is Loading...</div>;
+	if (isLoading || load) {
+		return <Loader load={load} />;
 	}
 	return (
 		<div className="gap-10 py-10 px-10 lg:px-20 h-screen">

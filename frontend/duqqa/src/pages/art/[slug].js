@@ -1,20 +1,19 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import { useQuery } from "@tanstack/react-query";
 import { fetchProductById } from "../../utils/helperFunctions";
 import { addToCart } from "@/utils/helperFunctions";
 import { useAuth } from "@/utils/AuthContext";
-
-
-
+import Loader from "@/components/Loader";
+import Link from "next/link";
 
 export default function ProductPage() {
 	const { userId } = useAuth();
 	const router = useRouter();
 	const productId = router.query.slug;
+	const [load, setLoad] = useState(true);	
 
-	
 	
 	const {
 		data: product,
@@ -24,6 +23,13 @@ export default function ProductPage() {
 		queryFn: () => fetchProductById(productId),
 		queryKey: ["product", productId],
 	});
+  useEffect(() => {
+		const timer = setTimeout(() => {
+			setLoad(false);
+		}, 700);
+
+		return () => clearTimeout(timer);
+	}, []);
 
 	const cartItem = {
 		productId: productId,
@@ -35,8 +41,8 @@ export default function ProductPage() {
 		console.log(userId, cartItem);
 	}; 
 
-	if (isLoading) {
-		return <div>Loading...</div>;
+	if (isLoading || load) {
+		return <Loader />;
 	}
 
 	if (isError || !product) {
@@ -55,25 +61,25 @@ export default function ProductPage() {
 			</div>
 			<div className="w-full md:w-1/2 md:p-10 flex flex-col gap-10  h-full justify-center text-xl text-gray-400 font-light">
 				<div className="flex">
-					<p className="w-1/4">Title</p>
-					<p className="w-3/4">{product.productName}</p>
+					<p className="w-1/4 text-2xl font-semibold">Title:</p>
+					<p className="w-3/4 text-gray-100">{product.productName}</p>
 				</div>
 				<div className="flex">
-					<p className="w-1/4">Description</p>
-					<p className="w-3/4">{product.description}</p>
+					<p className="w-1/4 text-2xl font-semibold">Description:</p>
+					<p className="w-3/4 text-gray-100">{product.description}</p>
 				</div>
 				<div className="flex">
-					<p className="w-1/4">Price</p>
-					<p className="w-3/4">${product.price}</p>
+					<p className="w-1/4 text-2xl font-semibold">Price:</p>
+					<p className="w-3/4 text-gray-100">${product.price}</p>
 				</div>
 				<div className="flex">
 					<p className="w-1/4"></p>
-					<button
-						onClick={onSubmit}
-						className="w-3/4 border border-gray-500 p-2 rounded-full hover:bg-gray-300 hover:text-gray-900"
+					<Link
+						href='/exhibition'
+						className="w-3/4 bg-gray-100 text-black p-3 rounded-md hover:text-gray-100 text-[14px] font-medium hover:bg-orange-500 text-center max-w-[200px] "
 					>
-						Add to Cart
-					</button>
+						back to exhibition
+					</Link>
 				</div>
 			</div>
 		</div>

@@ -6,11 +6,13 @@ import Image from "next/image";
 import Link from "next/link";
 import { useAuth } from "@/utils/AuthContext";
 import { useRouter } from "next/navigation";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { createProduct } from "@/utils/helperFunctions";
 import React from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Loader from "@/components/Loader";
+
 
 
 const schema = yup
@@ -25,12 +27,22 @@ const schema = yup
 export default function ProductForm() {
 	const { token, loading } = useAuth();
 	const router = useRouter();
+	const [load, setLoad] = useState(true);	
+
 
 	useEffect(() => {
 		if (!loading && !token) {
 			router.replace("/auth/login");
 		}
 	}, [token, router, loading]);
+
+	  useEffect(() => {
+			const timer = setTimeout(() => {
+				setLoad(false);
+			}, 1000);
+
+			return () => clearTimeout(timer);
+		}, []);
 
 	const {
 		register,
@@ -58,6 +70,10 @@ export default function ProductForm() {
 			notify();
 		}
 	}; 
+
+	if (load) {
+		return <Loader load={load} />;
+	}
 
 	return (
 		<div className="text-white   h-screen flex flex-col items-start justify-start gap-10 p-10 md:p-20">
@@ -120,7 +136,7 @@ export default function ProductForm() {
 
 				<input
 					type="submit"
-					className=" py-3 px-5 w-[200px] rounded-full bg-gray-300 text-gray-900 text-lg font-semibold cursor-pointer  hover:bg-white hover:shadow-white shadow-md"
+					className=" py-3 px-3 w-[200px] rounded-mg bg-gray-300 text-gray-900 text-lg font-semibold cursor-pointer  hover:bg-green-500 hover:text-gray-200 "
 				/>
 				<ToastContainer limit={1} />
 			</form>

@@ -48,7 +48,7 @@ const handleDelete = async () => {
 					/>
 				</div>
 			</Link>
-			<div className="flex py-5 justify-between p-5">
+			<div className="flex py-5 justify-between items-center p-5">
 				<h3 className="text-lg font-semibold tracking-wide">{productName}</h3>
 				<p className="font-bold">${price}</p>
 				<Link
@@ -56,13 +56,13 @@ const handleDelete = async () => {
 						pathname: "/edit/[slug]",
 						query: { slug: id },
 					}}
-					className="border-b px-3 text-sm   hover:bg-gray-100 hover:text-gray-900"
+					className=" p-3 text-md text-center text-green-700  hover:bg-green-500 hover:text-gray-100"
 				>
 					Edit
 				</Link>
 				<button
 					onClick={handleDelete}
-					className="border-b px-3 text-sm text-red-500  hover:bg-gray-100 hover:text-gray-900"
+					className=" p-3 text-md text-red-500  hover:bg-red-500 hover:text-gray-100"
 				>
 					delete
 				</button>

@@ -91,11 +91,11 @@ export default function Cart() {
 				<div className="flex justify-evenly w-full">
 					<Link
 						href="/exhibition"
-						className=" py-3 px-5 w-[150px] text-center rounded-full border border-gray-500 text-gray-300 hover:bg-gray-200 hover:text-black font-semibold"
+						className=" py-3 px-5 w-[150px] text-center rounded-md border border-gray-500 text-gray-300 hover:bg-purple-500 hover:text-gray-200 font-semibold"
 					>
 						continue shopping
 					</Link>
-					<button className=" py-3 px-5 w-[150px] rounded-full border border-gray-500 text-gray-300 hover:bg-gray-200 hover:text-black font-semibold">
+					<button className=" py-3 px-5 w-[150px] rounded-md border border-gray-500 text-gray-300 hover:bg-green-500 hover:text-gray-200 font-semibold">
 						Checkout
 					</button>
 				</div>
