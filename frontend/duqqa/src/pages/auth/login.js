@@ -33,7 +33,7 @@ export default function Login() {
 
 	const onSubmit = async (data) => {
 		try {
-			const response = await fetch(BASE_URL, {
+			const response = await fetch(`${BASE_URL}/auth/login`, {
 				method: "POST",
 				headers: {
 					"Content-Type": "application/json",
