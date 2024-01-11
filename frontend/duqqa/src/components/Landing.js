@@ -22,7 +22,7 @@ export default function Landing() {
 				data-scroll-speed="0.2"
 				className="w-4/5 text-white text-[5vh] md:text-[10vh] absolute top-[10%] md:top-1/4  tracking-tight p-5 uppercase text-right mix-blend-difference z-10 font-bold"
 			>
-				Inspiration, <br></br> Acquisition <br></br> done differently
+				Inspiration, <br></br> Acquisition, <br></br> done differently
 			</div>
 		</div>
 	);
