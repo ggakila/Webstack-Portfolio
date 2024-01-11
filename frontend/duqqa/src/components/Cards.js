@@ -45,7 +45,7 @@ export default function Cards({ url, id, productName,  price }) {
 					fill={true}
 					alt="art for sale"
 					style={{ objectFit: "cover" }}
-					loading="lazy"
+					priority={true}
 					quality={95}
 					className="rounded overflow-hidden hover:scale-105 transform transition-transform duration-500 ease-in-out"
 				/>

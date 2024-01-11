@@ -42,6 +42,7 @@ const handleDelete = async () => {
 					<Image
 						src={url}
 						fill={true}
+						priority
 						alt="art for sale"
 						style={{ objectFit: "cover" }}
 						className="rounded overflow-hidden hover:scale-110 transform transition-transform duration-300 ease-in-out"
