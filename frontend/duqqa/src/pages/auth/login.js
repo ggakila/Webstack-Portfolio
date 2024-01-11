@@ -29,10 +29,11 @@ export default function Login() {
 	const { login } = useAuth();
 
 	const router = useRouter();
+	const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
 
 	const onSubmit = async (data) => {
 		try {
-			const response = await fetch("http://localhost:5000/api/auth/login", {
+			const response = await fetch(BASE_URL, {
 				method: "POST",
 				headers: {
 					"Content-Type": "application/json",
