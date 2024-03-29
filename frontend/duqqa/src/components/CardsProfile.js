@@ -59,13 +59,13 @@ const handleDelete = async () => {
 						pathname: "/edit/[slug]",
 						query: { slug: id },
 					}}
-					className=" p-2 text-xs text-center   hover:bg-blue-500 hover:text-gray-100"
+					className=" px-2 py-1 text-xs text-center   hover:bg-blue-500 hover:text-gray-100"
 				>
 					Edit
 				</Link>
 				<button
 					onClick={handleDelete}
-					className=" p-2 text-xs text-red-500  hover:bg-red-500 hover:text-gray-100"
+					className=" px-2 py-1 text-xs text-red-500  hover:bg-red-500 hover:text-gray-100"
 				>
 					delete
 				</button>

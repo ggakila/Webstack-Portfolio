@@ -103,7 +103,7 @@ export default function ProductForm() {
 					<input
 						{...register("productName")}
 						placeholder="title"
-						className="w-full bg-transparent border-b border-gray-800 outline-none text-xl py-3 text-gray-300"
+						className="w-full  border-b border-gray-800 outline-none text-xl py-3 bg-neutral-900 rounded-full text-center text-gray-300"
 						autoComplete="off"
 					/>
 					<p className="text-red-500">{errors.productName?.message}</p>
@@ -113,7 +113,7 @@ export default function ProductForm() {
 					<input
 						{...register("description")}
 						placeholder="description"
-						className="w-full bg-transparent border-b border-gray-800 outline-none text-xl py-3 text-gray-300"
+						className="w-full  border-b border-gray-800 outline-none text-xl py-3 bg-neutral-900 rounded-full text-center text-gray-300"
 						autoComplete="off"
 					/>
 					<p className="text-red-500">{errors.description?.message}</p>
@@ -123,7 +123,7 @@ export default function ProductForm() {
 					<input
 						{...register("imageUrl")}
 						placeholder="image url"
-						className="w-full bg-transparent border-b border-gray-800 outline-none text-xl py-3 text-gray-300"
+						className="w-full  border-b border-gray-800 outline-none text-xl py-3 bg-neutral-900 rounded-full text-center text-gray-300"
 						autoComplete="off"
 					/>
 					<p className="text-red-500">{errors.imageUrl?.message}</p>
@@ -133,7 +133,7 @@ export default function ProductForm() {
 					<input
 						{...register("price")}
 						placeholder="price"
-						className="w-full bg-transparent border-b border-gray-800 outline-none text-xl py-3 text-gray-300"
+						className="w-full  border-b border-gray-800 outline-none text-xl py-3 bg-neutral-900 rounded-full text-center text-gray-300"
 						autoComplete="off"
 					/>
 					<p className="text-red-500">{errors.price?.message}</p>
@@ -141,7 +141,7 @@ export default function ProductForm() {
 
 				<input
 					type="submit"
-					className=" py-3 px-3 w-[200px] rounded-lg bg-gray-300 text-gray-900 text-lg font-semibold cursor-pointer  hover:bg-green-500 hover:text-gray-200 "
+					className=" py-3 px-3 w-[200px] rounded-full bg-gray-300 text-gray-900 text-lg font-semibold cursor-pointer  hover:bg-green-500 hover:text-gray-200 "
 				/>
 				<ToastContainer limit={1} />
 			</form>

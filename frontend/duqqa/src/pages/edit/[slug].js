@@ -12,6 +12,12 @@ import React from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Loader from "@/components/Loader";
+import { Syne } from "next/font/google";
+
+const syne = Syne({
+	weight: [],
+	subsets: ["latin"],
+});
 
 
 
@@ -76,7 +82,7 @@ export default function Edit() {
 
 
 	return (
-		<div className="text-white h-screen flex flex-col items-center justify-start gap-10 p-10 py-28">
+		<div className={` ${syne.className} text-white h-screen flex flex-col items-center justify-center gap-10 p-10 py-28`}>
 			<Link
 				href="/"
 				className="w-[40px] h-[40px] absolute top-10 left-10"
@@ -87,7 +93,7 @@ export default function Edit() {
 					alt="back button home"
 				/>
 			</Link>
-			<h1 className="text-5xl md:text-7xl font-light text-center">
+			<h1 className="text-3xl md:text-4xl font-light text-center">
 				As the artist grows,
 				<br /> so does the art
 			</h1>
@@ -106,7 +112,7 @@ export default function Edit() {
 						<input
 							{...register(field.name)}
 							defaultValue={field.placeholder}
-							className="w-full bg-transparent border-b border-gray-800 outline-none text-3xl py-3 text-gray-300"
+							className="w-full border-b min-w-[350px] border-gray-800 outline-none text-xl py-3 bg-neutral-900 rounded-full text-center text-gray-100"
 							autoComplete="off"
 						/>
 						<p className="text-red-500">{errors[field.name]?.message}</p>
@@ -116,7 +122,7 @@ export default function Edit() {
 				<input
 					type="submit"
 					value="Save"
-					className="py-3 px-5 w-[100px] rounded-full bg-green-300 text-gray-900 text-lg font-semibold cursor-pointer hover:bg-white"
+					className="py-3 px-5 w-[150px] rounded-full bg-green-500 text-gray-900 text-lg font-semibold cursor-pointer hover:bg-white"
 				/>
 				<ToastContainer limit={1} />
 			</form>

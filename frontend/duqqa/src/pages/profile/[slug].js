@@ -8,6 +8,12 @@ import { fetchAllProducts } from "@/utils/helperFunctions";
 import { useAuth } from "@/utils/AuthContext";
 import { useEffect, useState } from "react";
 import Loader from "@/components/Loader";
+import { Syne } from "next/font/google";
+
+const syne = Syne({
+	weight: [],
+	subsets: ["latin"],
+});
 
 
 export default function Profile() {
@@ -53,7 +59,7 @@ export default function Profile() {
 		return <Loader load={load} />;
 	}
 	return (
-		<div className="gap-10 py-10 px-10 lg:px-20 h-screen">
+		<div className={` ${syne.className} gap-10 py-10 px-10 lg:px-20 h-screen`}>
 			<div className="flex justify-between items-start">
 				<div className="flex flex-col items-start gap-5 ">
 					<Link

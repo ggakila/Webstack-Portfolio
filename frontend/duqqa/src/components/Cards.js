@@ -51,7 +51,7 @@ export default function Cards({ url, id, productName,  price }) {
 				/>
 			</Link>
 			<div className="flex justify-between items-center px-5 w-full absolute bottom-0  bg-black opacity-80 py-3">
-				<h3 className="w-1/2 text-lg font-semibold tracking-wide">
+				<h3 className="w-1/2 text-lg font-semibold tracking-wide truncate">
 					{productName}
 				</h3>
 				<p className="price font-bold">${price}</p>
