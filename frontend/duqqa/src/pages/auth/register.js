@@ -62,7 +62,7 @@ export default function Login() {
 
 			console.log("Credentials successfully submitted:", data);
 			reset();
-            router.push('/login')
+            router.push('/auth/login')
 		} catch (error) {
 			console.error("Error submitting credentials:", error);
 		}
