@@ -3,6 +3,13 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { useRouter } from "next/router";
 import Link from "next/link";
+import { Syne } from "next/font/google";
+import Image from "next/image";
+
+const syne = Syne({
+	weight: [],
+	subsets: ["latin"],
+});
 
 const passwordRules = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
 const schema = yup
@@ -62,23 +69,23 @@ export default function Login() {
 	};
 
 	return (
-		<div className=" h-screen  flex flex-col items-center justify-center relative px-[10px] md:px-[40px] bg-gray-100 text-gray-900">
+		<div className="register h-screen bg-back-image flex flex-col items-center justify-center relative px-[10px] md:px-[40px] bg-black">
+			
 			{/* header section */}
 			<div className="w-full  absolute top-0 flex justify-between  px-[20px] md:px-[100px] py-[40px] items-center">
-				<h1 className="text-[10px] sm:text-xl"></h1>
+				<Link
+					href="/"
+					className={`font-extrabold uppercase text-xl md:text-3xl bg-orange-500 hover:bg-purple-500 p-3 my-2 rounded-full text-white ${syne.className}`}
+				>
+					duqqa
+				</Link>
 			</div>
 			{/* form section */}
-			<div className="flex flex-col w-full lg:w-2/3 items-center gap-[30px] sm:gap-[0px] justify-center  h-full">
-				<div className="w-full p-[10px] sm:p-[30px] flex flex-col items-center justify-center gap-[10px] sm:gap-[30px]">
-					<h1 className="text-4xl flex items-center text-center font-semibold ">
-						Welcome to Duqqa
-					</h1>
+			<div className="flex flex-col w-full lg:w-2/3 items-center gap-[30px] sm:gap-[0px] justify-center bg-black h-full">
+				<div className="w-full p-[10px] sm:p-[30px] sm:pt-[50px] flex flex-col items-center justify-center gap-[10px] sm:gap-[30px]">
 					<div className="flex flex-col gap-[5px] sm:gap-[10px] text-center font-medium ">
-						<p className="text-4xl sm:text-5xl">Where artists</p>
-						<p className="text-4xl sm:text-5xl">discover and get discovered</p>
-						<p className="text-xl sm:text-2xl mt-[20px] text-neutral-500">
-							Experience art how it was meant to be experienced
-						</p>
+						<p className="text-4xl sm:text-4xl">Where artists</p>
+						<p className="text-4xl sm:text-4xl">discover and get discovered</p>
 					</div>
 				</div>
 				<form
@@ -91,7 +98,7 @@ export default function Login() {
 							<input
 								{...register("email")}
 								placeholder="Enter email..."
-								className="w-full bg-transparent border-b min-w-[350px] border-gray-800 outline-none text-3xl py-3 text-gray-300"
+								className="w-full bg-transparent border-b min-w-[350px] border-gray-800 outline-none text-xl py-3 bg-neutral-900 rounded-full text-center text-gray-300"
 								autoComplete="off"
 							/>
 							<p className="text-red-500">{errors.email?.message}</p>
@@ -100,7 +107,7 @@ export default function Login() {
 							<input
 								{...register("username")}
 								placeholder="Enter username..."
-								className="w-full bg-transparent border-b min-w-[350px] border-gray-800 outline-none text-3xl py-3 text-gray-300"
+								className="w-full bg-transparent border-b min-w-[350px] border-gray-800 outline-none text-xl py-3 bg-neutral-900 rounded-full text-center text-gray-300"
 								autoComplete="off"
 							/>
 							<p className="text-red-500">{errors.username?.message}</p>
@@ -110,7 +117,7 @@ export default function Login() {
 							<input
 								{...register("password")}
 								placeholder="Enter password"
-								className="w-full bg-transparent border-b min-w-[350px] border-gray-800 outline-none text-3xl py-3 text-gray-300"
+								className="w-full bg-transparent border-b min-w-[350px] border-gray-800 outline-none text-xl py-3 bg-neutral-900 rounded-full text-center text-gray-300"
 								autoComplete="off"
 								type="password"
 							/>
@@ -120,7 +127,7 @@ export default function Login() {
 							<input
 								{...register("confirmPassword")}
 								placeholder="Confirm password"
-								className="w-full bg-transparent border-b min-w-[350px] border-gray-800 outline-none text-3xl py-3 text-gray-300"
+								className="w-full bg-transparent border-b min-w-[350px] border-gray-800 outline-none text-xl py-3 bg-neutral-900 rounded-full text-center text-gray-300"
 								autoComplete="off"
 								type="password"
 							/>
@@ -133,14 +140,14 @@ export default function Login() {
 						</p>
 						<input
 							type="submit"
-							className=" py-3 px-5 w-[200px] rounded-full bg-gray-300 text-gray-900 text-lg font-semibold cursor-pointer  hover:bg-white hover:shadow-white shadow-md"
+							className=" py-3  text-center px-5 w-[200px] rounded-full bg-gray-300 text-gray-900 text-lg font-semibold cursor-pointer  hover:bg-white "
 						/>
 					</div>
 					<p className="text-neutral-400 m-5">
 						Already have an account?{" "}
 						<span
 							className="text-gray-300 hover:text-blue-300 cursor-pointer text-lg"
-							onClick={() => router.push("/login")}
+							onClick={() => router.push("/auth/login")}
 						>
 							Login
 						</span>

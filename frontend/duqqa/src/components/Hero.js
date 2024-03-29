@@ -1,10 +1,10 @@
 import Image from "next/image";
 import { Comfortaa} from "next/font/google";
 import Link from "next/link";
+import { Syne } from "next/font/google";
 
-
-const comfortaa = Comfortaa({
-	weight: ["300", "400", "500", "600", "700"],
+const syne = Syne({
+	weight: [],
 	subsets: ["latin"],
 });
 
@@ -77,12 +77,12 @@ export default function Hero() {
 				/>
 			</div>
 
-			<div className=" h-full  w-full  flex items-center justify-center  text-center  gap-5 absolute text-xl">
+			<div className=" h-full  w-full  flex items-center justify-center  text-center  gap-5 absolute text-[14px]">
 				<Link
 					href="/exhibition"
 					className="z-10 bg-white  rounded-md hover:bg-purple-600 hover:text-white "
 				>
-					<p className=" px-3 py-3  font-semibold   min-w-[200px] ">
+					<p className={` ${syne.className} min-w-[150px] px-3 py-3  font-semibold  text-md md:text-lg`}>
 						See collection
 					</p>
 				</Link>

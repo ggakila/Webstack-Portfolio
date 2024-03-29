@@ -1,37 +1,45 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { Syne } from "next/font/google";
+
+const syne = Syne({
+	weight: [],
+	subsets: ["latin"],
+});
 
 export default function contact() {
 	return (
-		<div className="flex flex-row-reverse justify-between w-full h-screen  p-10 md:p-20 text-gray-400">
+		<div
+			className={`flex flex-row-reverse justify-between w-full h-screen  p-10 md:p-20 text-gray-200 ${syne.className}`}
+		>
 			<div className="flex flex-col justify-end text-left gap-5 md:gap-8  font-light text-[3vw] md:text-[1.2vw]">
 				<Link
-					href="/exhibition"
+					href="https://www.linkedin.com/in/haggai-gisore-a5529b170/"
 					className="border-transparent border-b-2 hover:border-gray-200 hover:text-gray-200"
 				>
 					linkedin.
 				</Link>
 				<Link
-					href="/showcase"
+					href="https://twitter.com/gisore_akila"
 					className="border-transparent border-b-2 hover:border-gray-200 hover:text-gray-200"
 				>
-					twitter.
+					twitter(X).
 				</Link>
 				<Link
-					href="/cart"
+					href="https://www.facebook.com/"
 					className="border-transparent border-b-2 hover:border-gray-200 hover:text-gray-200"
 				>
 					facebook.
 				</Link>
 				<Link
-					href="/contact"
+					href="https://dribbble.com/following"
 					className="border-transparent border-b-2 hover:border-gray-200 hover:text-gray-200"
 				>
 					dribble.
 				</Link>
 				<Link
-					href="/profile"
+					href="https://www.artstation.com/?sort_by=community&dimension=all"
 					className="border-transparent border-b-2 hover:border-gray-200 hover:text-gray-200"
 				>
 					artstation.

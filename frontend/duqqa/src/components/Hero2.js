@@ -1,15 +1,18 @@
 import { Comfortaa } from "next/font/google";
 import Link from "next/link";
+import { Syne } from "next/font/google";
 
-const comfortaa = Comfortaa({
-	weight: ["300", "400", "500", "600", "700"],
+const syne = Syne({
+	weight: [],
 	subsets: ["latin"],
 });
 
 export default function Hero() {
 	return (
 		<div className="w-full h-[100vh] md:h-screen flex flex-col justify-center items-center font-light bg-black">
-			<p className="leading-normal tracking-normal font-thin text-[3vh]  sm:text-[3vh] md:text-[4vh]   p-10 mix-blend-difference text-white text-center w-full md:w-4/5">
+			<p
+				className={` ${syne.className} leading-normal tracking-normal font-thin text-[20px]   md:text-[4vh]   p-10 mix-blend-difference text-white text-center w-full md:w-4/5`}
+			>
 				From the spark of inspiration to the final acquisition, immerse yourself
 				in a journey that transcends artistic boundaries. Unleash the full
 				spectrum of your creative prowess as you showcase your masterpieces.
@@ -21,7 +24,9 @@ export default function Hero() {
 					href="/showcase"
 					className="z-10 bg-white text-black mix-blend-difference rounded-md hover:bg-orange-600 hover:text-white text-[14px]"
 				>
-					<p className="min-w-[200px] px-3 py-3  font-semibold  ">
+					<p
+						className={` ${syne.className} min-w-[150px] px-3 py-3  font-semibold  text-md md:text-lg`}
+					>
 						Share your work
 					</p>
 				</Link>

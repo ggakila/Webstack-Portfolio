@@ -7,6 +7,12 @@ import { useRouter } from "next/navigation";
 import { useEffect, useState, useCallback} from "react";
 import { useQuery } from "@tanstack/react-query";
 import { getCart } from "@/utils/helperFunctions";
+import { Syne } from "next/font/google";
+
+const syne = Syne({
+	weight: [],
+	subsets: ["latin"],
+});
 
 export default function Cart() {
 	const { token, userId, loading } = useAuth();
@@ -49,7 +55,7 @@ export default function Cart() {
 	);
 
 	return (
-		<div className="flex flex-col items-center justify-center p-10 ">
+		<div className={` ${syne.className} flex flex-col items-center justify-center p-10 `}>
 			<Link
 				href="/"
 				className="w-[40px] h-[40px] absolute top-10 left-10"
@@ -91,11 +97,11 @@ export default function Cart() {
 				<div className="flex justify-evenly w-full">
 					<Link
 						href="/exhibition"
-						className=" py-3 px-5 w-[150px] text-center rounded-md border border-gray-500 text-gray-300 hover:bg-purple-500 hover:text-gray-200 font-semibold"
+						className=" py-3 px-5 w-[200px] text-center rounded-md border border-gray-500 text-gray-300 hover:bg-purple-500 hover:text-gray-200 font-semibold"
 					>
 						continue shopping
 					</Link>
-					<button className=" py-3 px-5 w-[150px] rounded-md border border-gray-500 text-gray-300 hover:bg-green-500 hover:text-gray-200 font-semibold">
+					<button className=" py-3 px-5 w-[200px] rounded-md border border-gray-500 text-gray-300 hover:bg-green-500 hover:text-gray-200 font-semibold">
 						Checkout
 					</button>
 				</div>

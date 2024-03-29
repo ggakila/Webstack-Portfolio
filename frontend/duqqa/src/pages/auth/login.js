@@ -5,6 +5,12 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { useRouter } from "next/router";
 import { useAuth } from "@/utils/AuthContext";
+import { Syne } from "next/font/google";
+
+const syne = Syne({
+	weight: [],
+	subsets: ["latin"],
+});
 
 const schema = yup
 	.object({
@@ -69,12 +75,14 @@ export default function Login() {
 	};
 
 	return (
-		<div className="h-screen  flex flex-col items-center justify-center relative px-[10px] md:px-[40px] ">
+		<div
+			className={` ${syne.className} h-screen  flex flex-col items-center justify-center relative px-[10px] md:px-[40px] `}
+		>
 			{/* header section */}
 			<div className="w-full  absolute top-0 flex justify-between  px-[20px] md:px-[100px] py-[40px] items-center">
 				<Link
 					href="/"
-					className={`font-bold text-3xl `}
+					className={`font-extrabold uppercase text-xl md:text-3xl bg-orange-500 hover:bg-purple-500 p-3 my-2 rounded-full text-white ${syne.className}`}
 				>
 					duqqa
 				</Link>
@@ -82,13 +90,13 @@ export default function Login() {
 			{/* form section */}
 			<div className="flex flex-col w-full lg:w-2/3 items-center gap-[30px] sm:gap-[0px] justify-center  h-full">
 				<div className="w-full p-[10px] sm:p-[30px] flex flex-col items-center justify-center gap-[10px] sm:gap-[30px]">
-					<h1 className="text-4xl flex items-center text-center  ">
+					{/* <h1 className="text-3xl flex items-center text-center  ">
 						Welcome back
-					</h1>
+					</h1> */}
 					<div className="flex flex-col gap-[5px] sm:gap-[10px] text-center ">
-						<p className="text-4xl sm:text-5xl">Where artists</p>
-						<p className="text-4xl sm:text-5xl">discover and get discovered</p>
-						<p className="text-xl sm:text-2xl mt-[20px] text-neutral-400">
+						<p className="text-4xl sm:text-4xl">Where artists</p>
+						<p className="text-4xl sm:text-4xl">discover and get discovered</p>
+						<p className="text-lg sm:text-xl mt-[20px] text-neutral-400">
 							Experience art how it was meant to be experienced
 						</p>
 					</div>
@@ -103,7 +111,7 @@ export default function Login() {
 							<input
 								{...register("email")}
 								placeholder="Enter email..."
-								className="w-full bg-transparent border-b min-w-[350px] border-gray-800 outline-none text-3xl py-3 text-gray-300"
+								className="w-full bg-transparent border-b min-w-[350px] border-gray-800 outline-none text-xl py-3 bg-neutral-900 rounded-full text-center text-gray-300"
 								autoComplete="off"
 							/>
 							<p className="text-red-500">{errors.email?.message}</p>
@@ -113,7 +121,7 @@ export default function Login() {
 							<input
 								{...register("password")}
 								placeholder="Enter password"
-								className="w-full bg-transparent border-b min-w-[350px] border-gray-800 outline-none text-3xl py-3 text-gray-300"
+								className="w-full bg-transparent border-b min-w-[350px] border-gray-800 outline-none text-xl py-3 bg-neutral-900 rounded-full text-center text-gray-300"
 								autoComplete="off"
 								type="password"
 							/>
@@ -126,7 +134,7 @@ export default function Login() {
 						</p>
 						<input
 							type="submit"
-							className=" py-3 px-5 w-[200px] rounded-full bg-gray-300 text-gray-900 text-lg font-semibold cursor-pointer  hover:bg-white hover:shadow-white shadow-md"
+							className=" py-3 px-5 w-[200px] rounded-full bg-gray-300 text-gray-900 text-lg font-semibold cursor-pointer  hover:bg-white "
 						/>
 					</div>
 					<p className="m-5 text-neutral-500">

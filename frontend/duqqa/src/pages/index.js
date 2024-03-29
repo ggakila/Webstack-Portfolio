@@ -4,15 +4,16 @@ import Hero from '@/components/Hero';
 import Hero2 from "@/components/Hero2";
 import SayHello from "@/components/SayHello";
 import { Poppins} from "next/font/google";
-
 import { useEffect } from 'react';
 import Landing from '@/components/Landing';
+import { Syne } from "next/font/google";
 
-
-const poppins = Poppins({
-	weight: ["300", "400", "500", "600", "700"],
+const syne = Syne({
+	weight: [],
 	subsets: ["latin"],
 });
+
+
 
 export default function Home() {
 useEffect(() =>{
@@ -26,7 +27,7 @@ useEffect(() =>{
 
   return (
 		<main
-			className={`flex h-full flex-col items-center text w-full `}
+			className={`flex h-full flex-col items-center text w-full ${syne.className} `}
 		>
 			<Header />
 			<Landing />

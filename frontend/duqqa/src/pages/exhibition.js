@@ -8,7 +8,12 @@ import { useAuth } from "@/utils/AuthContext";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import Loader from "@/components/Loader";
+import { Syne } from "next/font/google";
 
+const syne = Syne({
+	weight: [],
+	subsets: ["latin"],
+});
 
 
 
@@ -42,7 +47,7 @@ export default function Exhibition() {
 		return <Loader load={load} />;
 	}
 	return (
-		<div className="exhibition h-full p-10 lg:px-20 font-light">
+		<div className={` ${syne.className} exhibition h-full p-10 lg:px-20 font-light`}>
 			<div className="flex items-start h-[30dvh] md:h-[20dvh] gap-10 py-5 justify-between ">
 				<Link
 					href="/"

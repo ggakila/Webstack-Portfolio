@@ -4,14 +4,12 @@ import React from "react";
 export default function Loader({ load}) {
 	return (
 		<div
-			className={`w-full h-screen bg-zinc-200 flex flex-col items-center justify-center transition-colors duration-500 ease-in-out ${
-				load ? "bg-white" : "bg-black"
-			}`}
+			className={`w-full h-screen bg-black flex flex-col items-center justify-center transition-colors duration-500 ease-in-out`}
 		>
-			<p className=" text-[14px] md:text-[24px] text-gray-800">
+			<p className=" text-[14px] md:text-[24px] text-gray-200">
 				loading experiences...
 			</p>
-			<div className="relative w-1/5 h-1/6 ">
+			<div className="relative w-2/5 h-2/6 ">
 				<Image
 					src="/images/ballload.svg"
 					alt="loader"
