@@ -92,7 +92,7 @@ export default function ProductForm() {
 					alt="back button home"
 				/>
 			</Link>
-			<h1 className="text-5xl md:text-5xl font-bold">
+			<h1 className="text-3xl md:text-5xl font-bold">
 				showcase your work<br></br> the world awaits your canvas
 			</h1>
 			<form

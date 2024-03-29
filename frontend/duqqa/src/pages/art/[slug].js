@@ -7,7 +7,12 @@ import { addToCart } from "@/utils/helperFunctions";
 import { useAuth } from "@/utils/AuthContext";
 import Loader from "@/components/Loader";
 import Link from "next/link";
+import { Syne } from "next/font/google";
 
+const syne = Syne({
+	weight: [],
+	subsets: ["latin"],
+});
 export default function ProductPage() {
 	const { userId } = useAuth();
 	const router = useRouter();
@@ -50,7 +55,7 @@ export default function ProductPage() {
 	}
 
 	return (
-		<div className="w-full h-screen flex flex-col md:flex-row items-center p-10 md:p-20">
+		<div className={` ${syne.className} w-full h-screen flex flex-col md:flex-row items-center p-10 md:p-20`}>
 			<div className="w-full md:w-1/2 h-full relative">
 				<Image
 					src={product.imageUrl}
@@ -59,17 +64,17 @@ export default function ProductPage() {
 					style={{ objectFit: "contain" }}
 				/>
 			</div>
-			<div className="w-full md:w-1/2 md:p-10 flex flex-col gap-10  h-full justify-center text-xl text-gray-400 font-light">
+			<div className="w-full md:w-1/2 md:p-10 flex flex-col gap-10  h-full justify-center text-lg text-gray-400 font-light">
 				<div className="flex">
-					<p className="w-1/4 text-2xl font-semibold">Title:</p>
+					<p className="w-1/4 text-xl font-semibold">Title:</p>
 					<p className="w-3/4 text-gray-100">{product.productName}</p>
 				</div>
 				<div className="flex">
-					<p className="w-1/4 text-2xl font-semibold">Description:</p>
+					<p className="w-1/4 text-xl font-semibold">Description:</p>
 					<p className="w-3/4 text-gray-100">{product.description}</p>
 				</div>
 				<div className="flex">
-					<p className="w-1/4 text-2xl font-semibold">Price:</p>
+					<p className="w-1/4 text-xl font-semibold">Price:</p>
 					<p className="w-3/4 text-gray-100">${product.price}</p>
 				</div>
 				<div className="flex">
