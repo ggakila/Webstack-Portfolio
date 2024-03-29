@@ -92,7 +92,7 @@ export default function ProductForm() {
 					alt="back button home"
 				/>
 			</Link>
-			<h1 className="text-3xl md:text-5xl font-bold">
+			<h1 className="text-3xl md:text-4xl font-bold">
 				showcase your work<br></br> the world awaits your canvas
 			</h1>
 			<form
@@ -103,7 +103,7 @@ export default function ProductForm() {
 					<input
 						{...register("productName")}
 						placeholder="title"
-						className="w-full  border-b border-gray-800 outline-none text-xl py-3 bg-neutral-900 rounded-full text-center text-gray-300"
+						className="w-full  border-b border-gray-800 outline-none text-lg py-3 bg-neutral-900 rounded-full text-center text-gray-300"
 						autoComplete="off"
 					/>
 					<p className="text-red-500">{errors.productName?.message}</p>
@@ -113,7 +113,7 @@ export default function ProductForm() {
 					<input
 						{...register("description")}
 						placeholder="description"
-						className="w-full  border-b border-gray-800 outline-none text-xl py-3 bg-neutral-900 rounded-full text-center text-gray-300"
+						className="w-full  border-b border-gray-800 outline-none text-lg py-3 bg-neutral-900 rounded-full text-center text-gray-300"
 						autoComplete="off"
 					/>
 					<p className="text-red-500">{errors.description?.message}</p>
@@ -123,7 +123,7 @@ export default function ProductForm() {
 					<input
 						{...register("imageUrl")}
 						placeholder="image url"
-						className="w-full  border-b border-gray-800 outline-none text-xl py-3 bg-neutral-900 rounded-full text-center text-gray-300"
+						className="w-full  border-b border-gray-800 outline-none text-lg py-3 bg-neutral-900 rounded-full text-center text-gray-300"
 						autoComplete="off"
 					/>
 					<p className="text-red-500">{errors.imageUrl?.message}</p>
@@ -133,7 +133,7 @@ export default function ProductForm() {
 					<input
 						{...register("price")}
 						placeholder="price"
-						className="w-full  border-b border-gray-800 outline-none text-xl py-3 bg-neutral-900 rounded-full text-center text-gray-300"
+						className="w-full  border-b border-gray-800 outline-none text-lg py-3 bg-neutral-900 rounded-full text-center text-gray-300"
 						autoComplete="off"
 					/>
 					<p className="text-red-500">{errors.price?.message}</p>

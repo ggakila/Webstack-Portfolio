@@ -55,7 +55,9 @@ export default function ProductPage() {
 	}
 
 	return (
-		<div className={` ${syne.className} w-full h-screen flex flex-col md:flex-row items-center p-10 md:p-20`}>
+		<div
+			className={` ${syne.className} w-full h-screen flex flex-col md:flex-row items-center p-10 `}
+		>
 			<div className="w-full md:w-1/2 h-full relative">
 				<Image
 					src={product.imageUrl}
@@ -64,23 +66,23 @@ export default function ProductPage() {
 					style={{ objectFit: "contain" }}
 				/>
 			</div>
-			<div className="w-full md:w-1/2 md:p-10 flex flex-col gap-10  h-full justify-center text-lg text-gray-400 font-light">
+			<div className="w-full md:w-1/2 p-5 md:p-10 flex flex-col gap-10  h-full justify-center text-sm md:text-md text-gray-400 font-light">
 				<div className="flex">
-					<p className="w-1/4 text-xl font-semibold">Title:</p>
+					<p className="w-1/4 text-sm md:text-md font-semibold">Title:</p>
 					<p className="w-3/4 text-gray-100">{product.productName}</p>
 				</div>
 				<div className="flex">
-					<p className="w-1/4 text-xl font-semibold">Description:</p>
+					<p className="w-1/4 text-sm md:text-md font-semibold">Description:</p>
 					<p className="w-3/4 text-gray-100">{product.description}</p>
 				</div>
 				<div className="flex">
-					<p className="w-1/4 text-xl font-semibold">Price:</p>
+					<p className="w-1/4 text-sm md:text-md font-semibold">Price:</p>
 					<p className="w-3/4 text-gray-100">${product.price}</p>
 				</div>
 				<div className="flex">
 					<p className="w-1/4"></p>
 					<Link
-						href='/exhibition'
+						href="/exhibition"
 						className="w-3/4 bg-gray-100 text-black p-3 rounded-md hover:text-gray-100 text-[14px] font-medium hover:bg-orange-500 text-center max-w-[200px] "
 					>
 						back to exhibition
