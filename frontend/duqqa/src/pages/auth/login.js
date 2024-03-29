@@ -111,7 +111,7 @@ export default function Login() {
 							<input
 								{...register("email")}
 								placeholder="Enter email..."
-								className="w-full bg-transparent border-b min-w-[350px] border-gray-800 outline-none text-xl py-3 bg-neutral-900 rounded-full text-center text-gray-300"
+								className="w-full  border-b min-w-[350px] border-gray-800 outline-none text-xl py-3 bg-neutral-900 rounded-full text-center text-gray-300"
 								autoComplete="off"
 							/>
 							<p className="text-red-500">{errors.email?.message}</p>
@@ -121,7 +121,7 @@ export default function Login() {
 							<input
 								{...register("password")}
 								placeholder="Enter password"
-								className="w-full bg-transparent border-b min-w-[350px] border-gray-800 outline-none text-xl py-3 bg-neutral-900 rounded-full text-center text-gray-300"
+								className="w-full  border-b min-w-[350px] border-gray-800 outline-none text-xl py-3 bg-neutral-900 rounded-full text-center text-gray-300"
 								autoComplete="off"
 								type="password"
 							/>
