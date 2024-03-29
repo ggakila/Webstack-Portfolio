@@ -50,20 +50,20 @@ const handleDelete = async () => {
 				</div>
 			</Link>
 			<div className="flex py-5 justify-between items-center p-5">
-				<h3 className="text-lg font-semibold tracking-wide">{productName}</h3>
-				<p className="font-bold">${price}</p>
+				<h3 className="text-sm font-semibold tracking-wide truncate">{productName}</h3>
+				<p className="font-medium">${price}</p>
 				<Link
 					href={{
 						pathname: "/edit/[slug]",
 						query: { slug: id },
 					}}
-					className=" p-3 text-md text-center text-green-700  hover:bg-green-500 hover:text-gray-100"
+					className=" p-2 text-xs text-center text-green-700  hover:bg-green-500 hover:text-gray-100"
 				>
 					Edit
 				</Link>
 				<button
 					onClick={handleDelete}
-					className=" p-3 text-md text-red-500  hover:bg-red-500 hover:text-gray-100"
+					className=" p-2 text-xs text-red-500  hover:bg-red-500 hover:text-gray-100"
 				>
 					delete
 				</button>
