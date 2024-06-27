@@ -11,9 +11,9 @@ const syne = Syne({
 export default function contact() {
 	return (
 		<div
-			className={`flex flex-row-reverse justify-between w-full h-screen  p-10 md:p-20 text-gray-200 ${syne.className}`}
+			className={`flex flex-row-reverse justify-between w-full h-screen  p-5 md:p-10 text-gray-200 ${syne.className}`}
 		>
-			<div className="flex flex-col justify-end text-left gap-5 md:gap-8  font-light text-[3vw] md:text-[1.2vw]">
+			<div className="flex flex-col justify-end text-left gap-3  font-light text-[12px] md:text-[14px]">
 				<Link
 					href="https://www.linkedin.com/in/haggai-gisore-a5529b170/"
 					className="border-transparent border-b-2 hover:border-gray-200 hover:text-gray-200"
@@ -47,7 +47,8 @@ export default function contact() {
 			</div>
 			<div className=" h-[100%] w-full md:w-1/2 flex flex-col items-start  font-light">
 				<div className="flex flex-col justify-between h-full pt-[100px] ">
-					<h1 className=" text-[3vw] md:text-[1.2vw]">
+						<span className="text-7xl text-gray-200">say hello.</span>
+					<h1 className=" text-[3vw] md:text-[18px]">
 						<span className=" font-bold">W</span>e value your experience and
 						perspective as part of our vibrant art community. Your feedback is a
 						crucial brushstroke in shaping the canvas of our platform. Whether
@@ -55,11 +56,10 @@ export default function contact() {
 						exploring the digital gallery, we want to hear your thoughts. Share
 						your insights, suggestions, or any aspects you believe we can
 						enhance. <br></br>
-						<span className="text-7xl text-gray-200">say hello.</span>
 					</h1>
 
 					<div className="w-1/3 flex flex-col gap-5">
-						<div className="flex flex-col gap-5 text-[3vw] md:text-[1.2vw]">
+						<div className="flex flex-col gap-5 text-[12px] md:text-[14px]">
 							<p>gisorehaggai@gmail.com</p>
 							<p>+254746875676</p>
 							<p>

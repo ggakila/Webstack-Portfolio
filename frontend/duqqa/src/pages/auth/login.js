@@ -6,6 +6,7 @@ import * as yup from "yup";
 import { useRouter } from "next/router";
 import { useAuth } from "@/utils/AuthContext";
 import { Syne } from "next/font/google";
+import Header from "@/components/Header";
 
 const syne = Syne({
 	weight: [],
@@ -82,7 +83,7 @@ export default function Login() {
 			<div className="w-full  absolute top-0 flex justify-between  px-[20px] md:px-[100px] py-[40px] items-center">
 				<Link
 					href="/"
-					className={`font-extrabold uppercase text-xl md:text-3xl bg-orange-500 hover:bg-purple-500 p-3 my-2 rounded-full text-white ${syne.className}`}
+					className={`font-extrabold uppercase text-[14px] md:text-[18px] bg-orange-500 hover:bg-purple-500 px-3 py-1 rounded-full text-white ${syne.className}`}
 				>
 					duqqa
 				</Link>
@@ -94,9 +95,11 @@ export default function Login() {
 						Welcome back
 					</h1> */}
 					<div className="flex flex-col gap-[5px] sm:gap-[10px] text-center ">
-						<p className="text-4xl sm:text-4xl">Where artists</p>
-						<p className="text-4xl sm:text-4xl">discover and get discovered</p>
-						<p className="text-lg sm:text-xl mt-[20px] text-neutral-400">
+						<p className="text-[16px] sm:text-[24px]">Where artists</p>
+						<p className="text-[16px] sm:text-[24px]">
+							discover and get discovered
+						</p>
+						<p className="text-[12px] sm:text-[20px] mt-[20px] text-neutral-400">
 							Experience art how it was meant to be experienced
 						</p>
 					</div>
@@ -110,8 +113,8 @@ export default function Login() {
 						<div className="">
 							<input
 								{...register("email")}
-								placeholder="Enter email..."
-								className="w-full  border-b min-w-[350px] border-gray-800 outline-none text-xl py-3 bg-neutral-900 rounded-full text-center text-gray-300"
+								placeholder="Enter email...(user@test.com)"
+								className="w-full  border-b min-w-[350px] border-gray-800 outline-none text-[14px] py-3 bg-neutral-900 rounded-full text-center text-gray-300"
 								autoComplete="off"
 							/>
 							<p className="text-red-500">{errors.email?.message}</p>
@@ -120,27 +123,27 @@ export default function Login() {
 						<div className="">
 							<input
 								{...register("password")}
-								placeholder="Enter password"
-								className="w-full  border-b min-w-[350px] border-gray-800 outline-none text-xl py-3 bg-neutral-900 rounded-full text-center text-gray-300"
+								placeholder="Enter password (UserTest@123}"
+								className="w-full  border-b min-w-[350px] border-gray-800 outline-none text-[14px] py-3 bg-neutral-900 rounded-full text-center text-gray-300"
 								autoComplete="off"
 								type="password"
 							/>
 							<p className="text-red-500">{errors.password?.message}</p>
 						</div>
-						<p className="text-neutral-500 px-[0px] sm:p-[10px] text-center">
+						<p className="text-neutral-500 px-[0px] sm:p-[10px] text-center text-[12px]">
 							By signing in you agree to the{" "}
 							<span className="underline">Privacy Policy</span> and{" "}
 							<span className="underline">Terms of Service</span>.
 						</p>
 						<input
 							type="submit"
-							className=" py-3 px-5 w-[200px] rounded-full bg-gray-300 text-gray-900 text-lg font-semibold cursor-pointer  hover:bg-white "
+							className=" py-2 px-3 w-[200px] rounded-full bg-gray-300 text-gray-900 text-[14px] font-semibold cursor-pointer  hover:bg-white "
 						/>
 					</div>
-					<p className="m-5 text-neutral-500">
+					<p className="m-5 text-neutral-500 text-[12px]">
 						Don&apos;t have an account?{" "}
 						<span
-							className="text-neutral-300 cursor-pointer hover:text-blue-400 text-lg"
+							className="text-neutral-300 cursor-pointer hover:text-blue-400"
 							onClick={() => router.push("/auth/register")}
 						>
 							Register

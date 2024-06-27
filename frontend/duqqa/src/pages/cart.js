@@ -55,21 +55,15 @@ export default function Cart() {
 	);
 
 	return (
-		<div className={` ${syne.className} flex flex-col items-center justify-center p-10 `}>
-			<Link
-				href="/"
-				className="w-[40px] h-[40px] absolute top-10 left-10"
-			>
-				<Image
-					src="/images/back.svg"
-					fill={true}
-					alt="back button home"
-				/>
-			</Link>
-			<div className=" flex justify-start w-full sm:w-3/4 lg:w-1/2 flex-col items-center  gap-5 h-screen mt-16">
-				<div className="flex flex-col justify-start items-start w-full gap-3  ">
-					<h1 className="text-3xl font-bold">Cart.</h1>
-					<h1 className="text-left text-xl ">
+		<div
+			className={` ${syne.className} flex flex-col items-center justify-center p-5 md:p-10 bg-neutral-950 min-h-screen `}
+		>
+			
+			
+			<div className=" flex justify-start w-full sm:w-3/4 lg:w-2/3 flex-col items-center  gap-5 h-full ">
+				<div className="flex flex-col justify-center items-center w-full gap-3  ">
+					<h1 className="text-[24px] font-bold">Cart.</h1>
+					<h1 className="text-left text-[16px] ">
 						You are about to acquire the ({cartnum}) work(s)
 					</h1>
 				</div>
@@ -88,7 +82,7 @@ export default function Cart() {
 							)
 					)}
 				</div>
-				<div className="flex w-full justify-between p-3">
+				<div className="flex w-full justify-between p-3 text-[14px]">
 					<h3>Total Price</h3>
 					<p>
 						$<span>{totalPrice}</span>
@@ -97,11 +91,11 @@ export default function Cart() {
 				<div className="flex justify-evenly w-full">
 					<Link
 						href="/exhibition"
-						className=" py-3 px-5 w-[200px] text-center rounded-md border border-gray-500 text-gray-300 hover:bg-purple-500 hover:text-gray-200 font-semibold"
+						className=" py-2 px-3 w-[200px] text-[14px] flex items-center justify-center text-center rounded-md border border-gray-500 text-gray-300 hover:bg-purple-500 hover:text-gray-200 font-semibold"
 					>
 						continue shopping
 					</Link>
-					<button className=" py-3 px-5 w-[200px] rounded-md border border-gray-500 text-gray-300 hover:bg-green-500 hover:text-gray-200 font-semibold">
+					<button className=" py-2 px-3 w-[200px] text-[14px] flex items-center justify-center  rounded-md border border-gray-500 text-gray-300 hover:bg-green-500 hover:text-gray-200 font-semibold">
 						Checkout
 					</button>
 				</div>

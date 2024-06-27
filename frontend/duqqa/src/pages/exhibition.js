@@ -47,8 +47,8 @@ export default function Exhibition() {
 		return <Loader load={load} />;
 	}
 	return (
-		<div className={` ${syne.className} exhibition h-full p-10 lg:px-20 font-light`}>
-			<div className="flex items-start h-[30dvh] md:h-[20dvh] gap-10 py-5 justify-between ">
+		<div className={` ${syne.className} exhibition bg-neutral-900 min-h-screen p-5 lg:px-10 font-light `}>
+			<div className="flex items-start h-[30dvh] md:h-[20dvh] gap-5 py-3 justify-between ">
 				<Link
 					href="/"
 					className="w-[40px] h-[40px] relative"
@@ -61,10 +61,10 @@ export default function Exhibition() {
 				</Link>
 				<div className="flex flex-col md:flex-row md:items-center justify-between gap-5 w-full">
 					<div className="">
-						<h1 className="text-2xl md:text-4xl text-white z-10">Exhibition</h1>
-						<h1 className="text-xl md:text-2xl">Available works</h1>
+						<h1 className="text-[16px] md:text-[24px] text-white z-10">Exhibition</h1>
+						<h1 className="text-[14px] md:text-[16px]">Available works</h1>
 					</div>
-					<p className="text-[14px] md:text-xl  md:w-1/3">
+					<p className="text-[14px]  md:w-1/3">
 						Our goal is to democratize art, providing a space where talents are
 						celebrated, stories are shared, and connections are forged{" "}
 					</p>

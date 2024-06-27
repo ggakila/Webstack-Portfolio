@@ -48,14 +48,16 @@ export default function CartItem({ productId, imageUrl, price, productName, onRe
 						<p>hi there</p>
 					)}
 				</div>
-				<h1 className="font-semibold text-xl">{productName}</h1>
+				<h1 className="font-semibold text-[14px] md:text-[16px]">
+					{productName}
+				</h1>
 			</div>
 			<ToastContainer limit={3} />
-			<p className="font-bold">
+			<p className="text-[14px] md:text-[16px]">
 				$<span>{price}</span>
 			</p>
 			<button
-				className="absolute z-10 top-0 p-1 right-0 text-red-500  hidden group-hover:flex"
+				className="absolute z-10 top-0 p-1 right-0 text-red-500  hidden group-hover:flex  text-[14px] "
 				onClick={handleRemove}
 			>
 				remove

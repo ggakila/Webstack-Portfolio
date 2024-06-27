@@ -10,7 +10,7 @@ const syne = Syne({
 
 export default function Landing() {
   return (
-		<div className="h-[70vh] md:h-[100vh]  w-full relative flex items-start justify-center bg-black overflow-hidden">
+		<div className="h-[120vh] md:h-[150vh]  w-full relative flex items-start justify-center bg-black overflow-hidden">
 			<div
 				data-scroll
 				data-scroll-speed="0.5"

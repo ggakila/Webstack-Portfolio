@@ -13,6 +13,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Loader from "@/components/Loader";
 import { Syne } from "next/font/google";
+import Header from "@/components/Header";
 
 const syne = Syne({
 	weight: [],
@@ -81,59 +82,52 @@ export default function ProductForm() {
 	}
 
 	return (
-		<div className={` ${syne.className} text-white   h-screen flex flex-col items-start justify-start gap-10 p-10 md:px-20`}>
-			<Link
-				href="/"
-				className="w-[40px] h-[40px] relative"
-			>
-				<Image
-					src="/images/back.svg"
-					fill={true}
-					alt="back button home"
-				/>
-			</Link>
-			<h1 className="text-3xl md:text-4xl font-bold">
+		<div
+			className={` ${syne.className} text-white   h-screen flex flex-col items-center  gap-10 p-5 md:px-10`}
+		>
+			<Header />
+			<h1 className="text-[24px] text-center md:text-[32px] font-bold">
 				showcase your work<br></br> the world awaits your canvas
 			</h1>
 			<form
 				onSubmit={handleSubmit(onSubmit)}
-				className="flex flex-col gap-5 md:gap-6 w-full md:w-2/3 lg:w-1/2"
+				className="flex flex-col items-center  gap-5 md:gap-6 w-full md:w-2/3 lg:w-1/2"
 			>
-				<div className="">
+				<div className="w-full">
 					<input
 						{...register("productName")}
 						placeholder="title"
-						className="w-full  border-b border-gray-800 outline-none text-lg py-3 bg-neutral-900 rounded-full text-center text-gray-300"
+						className="w-full  border-b border-gray-800 outline-none text-[14px] py-3 bg-neutral-900 rounded-full text-center text-gray-300"
 						autoComplete="off"
 					/>
 					<p className="text-red-500">{errors.productName?.message}</p>
 				</div>
 
-				<div>
+				<div className="w-full">
 					<input
 						{...register("description")}
 						placeholder="description"
-						className="w-full  border-b border-gray-800 outline-none text-lg py-3 bg-neutral-900 rounded-full text-center text-gray-300"
+						className="w-full  border-b border-gray-800 outline-none text-[14px] py-3 bg-neutral-900 rounded-full text-center text-gray-300"
 						autoComplete="off"
 					/>
 					<p className="text-red-500">{errors.description?.message}</p>
 				</div>
 
-				<div>
+				<div className="w-full">
 					<input
 						{...register("imageUrl")}
 						placeholder="image url"
-						className="w-full  border-b border-gray-800 outline-none text-lg py-3 bg-neutral-900 rounded-full text-center text-gray-300"
+						className="w-full  border-b border-gray-800 outline-none text-[14px] py-3 bg-neutral-900 rounded-full text-center text-gray-300"
 						autoComplete="off"
 					/>
 					<p className="text-red-500">{errors.imageUrl?.message}</p>
 				</div>
 
-				<div>
+				<div className="w-full">
 					<input
 						{...register("price")}
 						placeholder="price"
-						className="w-full  border-b border-gray-800 outline-none text-lg py-3 bg-neutral-900 rounded-full text-center text-gray-300"
+						className="w-full  border-b border-gray-800 outline-none text-[14px] py-3 bg-neutral-900 rounded-full text-center text-gray-300"
 						autoComplete="off"
 					/>
 					<p className="text-red-500">{errors.price?.message}</p>
@@ -141,7 +135,7 @@ export default function ProductForm() {
 
 				<input
 					type="submit"
-					className=" py-3 px-3 w-[200px] rounded-full bg-gray-300 text-gray-900 text-lg font-semibold cursor-pointer  hover:bg-green-500 hover:text-gray-200 "
+					className=" py-2 px-3 w-[200px] rounded-full bg-gray-300 text-gray-900 text-[14px] font-semibold cursor-pointer  hover:bg-green-500 hover:text-gray-200 "
 				/>
 				<ToastContainer limit={1} />
 			</form>

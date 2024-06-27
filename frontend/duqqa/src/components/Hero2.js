@@ -25,7 +25,7 @@ export default function Hero() {
 					className="z-10 bg-white text-black mix-blend-difference rounded-md hover:bg-orange-600 hover:text-white text-[14px]"
 				>
 					<p
-						className={` ${syne.className} min-w-[150px] px-3 py-3  font-semibold  text-md md:text-lg`}
+						className={` ${syne.className} min-w-[150px] px-3 py-3  font-semibold  text-[14px]`}
 					>
 						Share your work
 					</p>

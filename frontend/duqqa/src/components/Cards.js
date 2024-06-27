@@ -47,16 +47,16 @@ export default function Cards({ url, id, productName,  price }) {
 					style={{ objectFit: "cover" }}
 					priority={true}
 					quality={95}
-					className="rounded overflow-hidden hover:scale-105 transform transition-transform duration-500 ease-in-out"
+					className="rounded overflow-hidden hover:scale-105 transform transition-transform duration-700 ease-in-out"
 				/>
 			</Link>
-			<div className="flex justify-between items-center px-5 w-full absolute bottom-0  bg-black opacity-80 py-3">
-				<h3 className="w-1/2 text-lg font-semibold tracking-wide truncate">
+			<div className="flex justify-between items-center px-5 w-full absolute bottom-0  bg-black opacity-90 py-3">
+				<h3 className="w-1/3 text-[14px] font-semibold tracking-wide truncate">
 					{productName}
 				</h3>
-				<p className="price font-bold">${price}</p>
+				<p className="price text-bold">${price}</p>
 				<button
-					className="border px-3 text-sm min-w-[100px] max-h-[30px] py-2 rounded-md hover:bg-gray-100 hover:text-gray-900"
+					className="border px-3 text-[12px] min-w-[100px] max-h-[30px] py-1 rounded-md hover:bg-gray-100 hover:text-gray-900"
 					onClick={onSubmit}
 				>
 					Add to Cart

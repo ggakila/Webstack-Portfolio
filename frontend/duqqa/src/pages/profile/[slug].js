@@ -59,7 +59,7 @@ export default function Profile() {
 		return <Loader load={load} />;
 	}
 	return (
-		<div className={` ${syne.className} gap-10 py-10 px-10 lg:px-20 h-screen`}>
+		<div className={` ${syne.className} gap-10 py-10 px-5 lg:px-10 h-screen`}>
 			<div className="flex justify-between items-start">
 				<div className="flex flex-col items-start gap-5 ">
 					<Link
@@ -72,7 +72,7 @@ export default function Profile() {
 							alt="back button home"
 						/>
 					</Link>
-					<h1 className="text-4xl md:text-6xl font-light ">{username}</h1>
+					<h1 className="text-[24px] md:text-[32px] font-light ">Hello, {username}</h1>
 				</div>
 				<div className="flex flex-row items-center justify-between text-left gap-3 text-[14px] text-gray-300">
 					<Link
@@ -106,10 +106,10 @@ export default function Profile() {
 					)}
 				</div>
 			</div>
-			<div className="w-full pt-10 ">
-				<h1 className="text-2xl md:text-3xl">The power is in your hands.</h1>
+			<div className="w-full pt-5">
+				<h1 className="text-[14px] md:text-[24px]">The power is in your hands.</h1>
 				<div>
-					<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 h-full w-full gap-10 lg:gap-30">
+					<div className="flex flex-wrap h-full w-full gap-10 lg:gap-30">
 						{products?.map((product) => (
 							<>
 								<CardsProfile

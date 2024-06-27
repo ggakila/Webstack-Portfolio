@@ -31,19 +31,18 @@ export default function Header() {
 
 	return (
 		<div
-			className={`mix-blend-difference text-gray-400 w-full  py-4 md:py-8 flex justify-between items-center px-10 md:px-20 font-bold z-10 bg-transparent  md:sticky top-[1px] `}
+			className={`mix-blend-difference text-gray-400 w-full  h-[10svh] flex justify-between items-center px-5 md:px-10 font-bold z-10 bg-transparent  md:sticky top-[1px] `}
 		>
 			<Link
 				href="/"
-				className={`font-extrabold uppercase text-xl md:text-3xl bg-orange-500 hover:bg-purple-500 p-3 my-2 rounded-full text-white ${syne.className}`}
+				className={`font-extrabold uppercase text-[14px] md:text-[18px] bg-orange-500 hover:bg-purple-500 px-3 py-1 rounded-full text-white ${syne.className}`}
 			>
 				duqqa
 			</Link>
 			{/* <Navigation/> */}
-			<div className="flex gap-2 text-xl text-right">
-				
+			<div className="flex gap-2 text-[12px] md:text-[14px] text-right">
 				<div
-					className={`hidden md:flex justify-center text-left gap-1 sm:gap-2 md:gap-5 font-light text-[10px] md:text-[18px] ${syne.className}`}
+					className={`hidden md:flex justify-center text-left gap-1 sm:gap-2 md:gap-5 font-light text-[12px] md:text-[14px] ${syne.className}`}
 				>
 					<Link
 						href="/exhibition"

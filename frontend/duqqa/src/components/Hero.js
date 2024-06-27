@@ -10,11 +10,11 @@ const syne = Syne({
 
 export default function Hero() {
 	return (
-		<div className="w-full h-[100vh] md:h-screen flex flex-col font-light bg-gray-300 text-gray-800 text-[1vw] relative overflow-hidden ">
+		<div className="w-full h-screen md:h-[150vh]  flex flex-col font-light bg-gray-300 text-gray-800 text-[1vw] relative overflow-hidden ">
 			<div
 				data-scroll
 				data-scroll-speed="0.1"
-				className="hero-image absolute top-1/5  left-1/3  w-1/2 md:w-1/3 h-[50%]  "
+				className="hero-image absolute top-1/5  left-1/3  w-1/2 md:w-1/3 h-[300px] md:h-[500px]  "
 			>
 				<Image
 					src="https://images.pexels.com/photos/3685210/pexels-photo-3685210.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
@@ -27,7 +27,7 @@ export default function Hero() {
 			<div
 				data-scroll
 				data-scroll-speed="0.3"
-				className="hero-image absolute top-1/3 left-3/4 w-[20%] h-[20%] "
+				className="hero-image absolute top-1/3 left-3/4 w-full max-w-[400px] h-[20%] "
 			>
 				<Image
 					src="https://images.pexels.com/photos/1697192/pexels-photo-1697192.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
@@ -82,7 +82,7 @@ export default function Hero() {
 					href="/exhibition"
 					className="z-10 bg-white  rounded-md hover:bg-purple-600 hover:text-white "
 				>
-					<p className={` ${syne.className} min-w-[150px] px-3 py-3  font-semibold  text-md md:text-lg`}>
+					<p className={` ${syne.className} min-w-[150px] px-3 py-3  font-semibold  text-[14px]`}>
 						See collection
 					</p>
 				</Link>
