@@ -10,7 +10,7 @@ const syne = Syne({
 
 export default function Hero() {
 	return (
-		<div className="w-full h-screen md:h-[150vh]  flex flex-col font-light bg-gray-300 text-gray-800 text-[1vw] relative overflow-hidden ">
+		<div className="w-full h-screen md:h-[150vh]  flex flex-col font-light  text-gray-800 text-[2.4rem] relative overflow-hidden ">
 			<div
 				data-scroll
 				data-scroll-speed="0.1"

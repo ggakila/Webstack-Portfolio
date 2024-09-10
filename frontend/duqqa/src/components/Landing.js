@@ -10,12 +10,31 @@ const syne = Syne({
 
 export default function Landing() {
   return (
-		<div className="h-[120vh] md:h-[150vh]  w-full relative flex items-start justify-center bg-black overflow-hidden">
+		<div className="h-[90vh]  w-full relative flex flex-col md:flex-row items-start justify-center mt-[10vh] overflow-hidden">
 			<div
 				data-scroll
-				data-scroll-speed="0.5"
+				data-scroll-speed="0.01"
+				className={`${syne.className} w-full h-full flex flex-col justify-center leading-normal gap-3 items-center px-5 md:px-10`}
+			>
+				<p className="text-[1.5rem] md:text-[3rem] text-center font-bold tracking-tight">
+					A Digital Gallery Where Artists Create and Collectors dicover
+				</p>
+				<Link
+					href="/exhibit"
+					className="hover:bg-white text-white mix-blend-difference rounded-md bg-orange-600 hover:text-white text-[14px]"
+				>
+					<p
+						className={` ${syne.className} max-w-[150px] px-3 py-3  font-semibold  text-[14px]`}
+					>
+						Exhibition
+					</p>
+				</Link>
+			</div>
+			<div
+				data-scroll
+				data-scroll-speed="-0.2"
 				//className="absolute w-2/3 lg:w-1/3 h-3/4 top-[50%] md:top-1/3 z-0 left-[5%] md:left-[5%] "
-				className="absolute w-full h-full top-[45%] md:top-[50%] "
+				className=" w-full h-full top-[45%] md:top-[50%] "
 			>
 				<Image
 					src="https://images.pexels.com/photos/2574476/pexels-photo-2574476.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
@@ -23,23 +42,6 @@ export default function Landing() {
 					alt="main hero page"
 					style={{ objectFit: "cover" }}
 				/>
-			</div>
-			<div
-				data-scroll
-				data-scroll-speed="0.2"
-				className={`${syne.className} w-full md:w-2/3 text-gray-200 text-[24px] md:text-[40px] leading-normal p-5 md:p-10  text-center mix-blend-difference z-10 font-bold`}
-			>
-				Duqqa, a digital art gallery where creativity meets commerce. Here,
-				every piece of art tells a story, waiting to be discovered and
-				appreciated.
-				<Link
-					href="/exhibition"
-					className="z-10  text-gray-200 mix-blend-difference rounded-md hover:text-orange-600  text-[16px]"
-				>
-					<p className="min-w-[200px] px-3 py-3 font-semibold">
-						go to exhibition <span className="font-bold text-xl">→</span>
-					</p>
-				</Link>
 			</div>
 		</div>
 	);

@@ -27,7 +27,7 @@ useEffect(() =>{
 
   return (
 		<main
-			className={`flex h-full flex-col items-center text w-full ${syne.className} `}
+			className={`flex h-full flex-col items-center text w-full bg-white text-black ${syne.className} `}
 		>
 			<Header />
 			<Landing />

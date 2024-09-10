@@ -31,56 +31,64 @@ export default function Header() {
 
 	return (
 		<div
-			className={`mix-blend-difference text-gray-400 w-full  h-[10svh] flex justify-between items-center px-5 md:px-10 font-bold z-10 bg-transparent  md:sticky top-[1px] `}
+			className={` text-gray-900 w-full  h-[10vh] flex justify-between items-center px-5 md:px-10 z-50 shadow-sm   fixed bg-white top-0 `}
 		>
-			<Link
-				href="/"
-				className={`font-extrabold uppercase text-[14px] md:text-[18px] bg-orange-500 hover:bg-purple-500 px-3 py-1 rounded-full text-white ${syne.className}`}
-			>
-				duqqa
-			</Link>
 			{/* <Navigation/> */}
-			<div className="flex gap-2 text-[12px] md:text-[14px] text-right">
+			<div className="flex w-full gap-2 text-[0.85rem] md:text-[0.9rem] ">
 				<div
 					className={`hidden md:flex justify-center text-left gap-1 sm:gap-2 md:gap-5 font-light text-[12px] md:text-[14px] ${syne.className}`}
 				>
 					<Link
 						href="/exhibition"
-						className="border-transparent border-b-2 hover:border-gray-200 hover:text-white font-extralight py-2"
+						className="border-transparent border-b-2 hover:border-orange-600 hover:text-orange-600 font-extralight "
 					>
 						Exhibition
 					</Link>
 					<Link
 						href="/showcase"
-						className="border-transparent border-b-2 hover:border-gray-100 hover:text-white py-2"
+						className="border-transparent border-b-2 hover:border-orange-600 hover:text-orange-600 "
 					>
-						Showcase
+						Submit your work
+					</Link>
+					<Link
+						href="/about"
+						className="border-transparent border-b-2 hover:border-orange-600 hover:text-orange-600 "
+					>
+						About us
 					</Link>
 					<Link
 						href="/cart"
-						className="border-transparent border-b-2 hover:border-gray-200 hover:text-white py-2"
+						className="border-transparent border-b-2 hover:border-orange-600 hover:text-orange-600 "
 					>
 						Cart
 					</Link>
-					{token ? (
-						<Link
-							href={{
-								pathname: "/profile/[slug]",
-								query: { slug: username },
-							}}
-							className="border-transparent border-b-2 hover:border-gray-200 hover:text-white py-2"
-						>
-							{username}
-						</Link>
-					) : (
-						<Link
-							href="/auth/login"
-							className="border-transparent border-b-2 hover:border-gray-200 hover:text-white py-2"
-						>
-							Login
-						</Link>
-					)}
 				</div>
+			</div>
+			<Link
+				href="/"
+				className={`font-extrabold uppercase text-[0.85rem]   px-3 py-1 text-center rounded-full w-full ${syne.className}`}
+			>
+				duqqa.
+			</Link>
+			<div className="w-full  text-end text-[0.85rem] md:text-[0.9rem]">
+				{token ? (
+					<Link
+						href={{
+							pathname: "/profile/[slug]",
+							query: { slug: username },
+						}}
+						className="border-transparent border-b-2 hover:border-orange-600 hover:text-orange-600 "
+					>
+						{username}
+					</Link>
+				) : (
+					<Link
+						href="/auth/login"
+						className="border-transparent border-b-2 hover:border-orange-600 hover:text-orange-600"
+					>
+						Login
+					</Link>
+				)}
 			</div>
 		</div>
 	);
